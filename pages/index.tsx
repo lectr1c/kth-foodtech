@@ -12,10 +12,10 @@ const Home: NextPage = () => {
     <div>
       <Navigation/>
       <Main/>
-        <InfoContainer/>
-        <InstagramContainer/>
-        <Staff/>
-        <Footer/>
+      <InfoContainer/>
+      <InstagramContainer/>
+      <Staff/>
+      <Footer/>
     </div>
   )
 }
