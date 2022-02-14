@@ -1,10 +1,21 @@
+// @ts-ignore
+import styled from "styled-components";
 
-const InfoContainer = () => {
+const InfoContainer = styled.div`
+  height: 300px;
+  width: 100%;
+  background-color: darkgray;
+  color: darkred;
+  font-size: 30px;
+  text-align: center;
+`
+
+const Info = () => {
     return (
-        <div>
+        <InfoContainer>
             Info
-        </div>
+        </InfoContainer>
     )
 }
 
-export default InfoContainer;
+export default Info;

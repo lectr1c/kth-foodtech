@@ -5,6 +5,7 @@ import Main from "../components/Main";
 import InfoContainer from "../components/InfoContainer";
 import Staff from "../components/Staff";
 import InstagramContainer from "../components/InstagramContainer";
+import Footer from "../components/Footer";
 
 const Home: NextPage = () => {
   return (
@@ -14,6 +15,7 @@ const Home: NextPage = () => {
         <InfoContainer/>
         <InstagramContainer/>
         <Staff/>
+        <Footer/>
     </div>
   )
 }
