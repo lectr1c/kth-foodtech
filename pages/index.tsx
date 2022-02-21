@@ -6,6 +6,7 @@ import InfoContainer from "../components/InfoContainer";
 import Staff from "../components/Staff";
 import InstagramContainer from "../components/InstagramContainer";
 import Footer from "../components/Footer";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home: NextPage = () => {
   return (

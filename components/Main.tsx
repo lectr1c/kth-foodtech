@@ -4,7 +4,7 @@ import styled from "styled-components";
 const MainContainer = styled.main`
   height: 95vh;
   width: 100%;
-  background-image: linear-gradient(to bottom right, darkgreen, whitesmoke);
+  background-color: lightgrey;
   
   @media screen and (min-height: 1440px){
     height: 1440px;
