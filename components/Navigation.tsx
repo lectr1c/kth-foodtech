@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const Navigation: NextComponentType = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
             <Container>
                     <Image
                         src={logo}
@@ -26,7 +26,7 @@ const Navigation: NextComponentType = () => {
                         <Nav.Link href="#home">Home</Nav.Link>
                         <Nav.Link href="#partners">Partners</Nav.Link>
                         <Nav.Link href="#blog">Blog</Nav.Link>
-                        <Button variant="success" className="mx-3">Events</Button>
+                        <Button variant="success" className="mx-3 my-sm-3 my-md-0">Events</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
