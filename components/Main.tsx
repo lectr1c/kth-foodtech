@@ -1,10 +1,18 @@
-// @ts-ignore
 import styled from "styled-components";
 
-const MainContainer = styled.main`
+// @ts-ignore
+
+interface mainProps {
+    readonly green?: boolean;
+}
+const MainContainer = styled.main<mainProps>`
   height: 95vh;
   width: 100%;
-  background-color: lightgrey;
+  background-color: ${props => props.green ? "lightgreen" : "lightgray"};
+  
+  :hover {
+    background-color: ${props => props.green ? "lightgray" : "lightgreen"};
+  }
   
   @media screen and (min-height: 1440px){
     height: 1440px;
@@ -13,8 +21,8 @@ const MainContainer = styled.main`
 
 const Main = (props: object) => {
     return (
-        <MainContainer>
-            Main Container
+        <MainContainer green>
+
         </MainContainer>
     )
 }

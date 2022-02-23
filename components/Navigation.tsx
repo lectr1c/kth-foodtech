@@ -1,6 +1,4 @@
 import {NextComponentType} from "next";
-// @ts-ignore
-import styled from "styled-components";
 import {Navbar, Container, NavDropdown, Nav, Offcanvas, Button} from "react-bootstrap";
 import logo from "../public/logo.svg";
 import Image from "next/image";
