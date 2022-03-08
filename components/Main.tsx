@@ -36,9 +36,9 @@ const Main = (props: object) => {
     const colorScheme = useColorScheme();
 
     return (
-        <div style={{height: '100vh', width: '100%', position: "relative"}}>
-            <Group position={"center"} spacing={"xl"} grow style={{padding: 50}}>
-                <div style={{width: 340}}>
+        <div style={{height: '70vh', width: '100%', position: "relative"}}>
+            <Group position={"center"} spacing={"xl"}  style={{padding: 50}}>
+                <div style={{width: 740}}>
                 <Card shadow={"md"} padding={"xl"}>
                         <Card.Section>
                             <Image
@@ -63,7 +63,7 @@ const Main = (props: object) => {
                         </Button>
                     </Card>
                 </div>
-                <div style={{width: 340}}>
+                <div style={{width: 740}}>
                     <Card shadow={"md"} padding={"xl"}>
                         <Card.Section>
                             <Image
