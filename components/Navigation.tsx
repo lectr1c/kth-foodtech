@@ -1,5 +1,5 @@
 import {NextComponentType} from "next";
-import {Navbar, Container, NavDropdown, Nav, Offcanvas, Button} from "react-bootstrap";
+import { Navbar, Container, NavDropdown, Nav, Offcanvas, Button } from "react-bootstrap";
 import logo from "../public/logo.svg";
 import Image from "next/image";
 

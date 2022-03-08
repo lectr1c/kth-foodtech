@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Home: NextPage = () => {
   return (
     <div>
-      <Navigation/>
+        <Navigation/>
       <Main/>
       <Footer/>
     </div>
