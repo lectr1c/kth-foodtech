@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import {Button, Card, Grid, Group, Text, Image, Badge, Title} from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
+import {useMediaQuery, useViewportSize} from "@mantine/hooks";
 import ImageN from 'next/image';
 import { useColorScheme } from "@mantine/hooks";
 import foodtechSVG from '../public/foodtechIllustration.svg';
 
 import Link  from "next/link";
 import _Document from "../pages/_document";
+import {useEffect, useState} from "react";
 const initialProps = _Document.getInitialProps;
 
 interface mainProps {
@@ -37,12 +38,19 @@ const data = {
 
 const Main = (props: object) => {
     const colorScheme = useColorScheme();
-    const matches860 = useMediaQuery('(min-width: 860px)');
-    const matches600 = useMediaQuery('(min-width: 600px)');
 
+    const [matches860, set860] = useState(true);
+    const [matches600, set600] = useState(true);
+
+    const windowSize = useViewportSize();
+
+    useEffect(() => {
+        set860(window.matchMedia('(min-width: 860px)').matches);
+        set600(window.matchMedia('(min-width: 700px)').matches);
+    }, [windowSize])
 
     return (
-        <div style={{width: '100%', minHeight: matches860 ? '75vh' : matches600 ? '750px' : '600px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <div style={{width: '100%', minHeight: matches860 ? '85vh' : matches600 ? '750px' : '600px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Group position="center" spacing={100}>
                 <div style={{maxWidth: '500px'}}>
                     <div style={{maxHeight: matches600 ? '120px' : '70px', marginLeft: 10}}>
