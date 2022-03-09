@@ -6,9 +6,7 @@ const WavesSpacer = () => {
     return (
         <>
             <Image src={waves} alt={"waves"} layout={"responsive"}/>
-            <div style={{position: "relative", top: '-5px'}}>
-                <Image src={wave} alt={"waves"} layout={"responsive"}/>
-            </div>
+            <Image src={wave} alt={"waves"} layout={"responsive"}/>
         </>
     )
 }
