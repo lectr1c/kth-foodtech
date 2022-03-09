@@ -37,20 +37,22 @@ const data = {
 
 const Main = (props: object) => {
     const colorScheme = useColorScheme();
-    const matchesQuery = useMediaQuery('(min-width: 860px)');
+    const matches860 = useMediaQuery('(min-width: 860px)');
+    const matches600 = useMediaQuery('(min-width: 600px)');
+
 
     return (
-        <div style={{width: '100%', minHeight: matchesQuery ? '1000px' : '600px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <div style={{width: '100%', minHeight: matches860 ? '1000px' : matches600 ? '750px' : '600px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Group position="center" spacing={100}>
                 <div style={{maxWidth: '500px'}}>
-                    <div style={{maxHeight: matchesQuery ? '120px' : '70px', marginLeft: 10}}>
+                    <div style={{maxHeight: matches600 ? '120px' : '70px', marginLeft: 10}}>
                         <Text
                             align="left"
                             variant="gradient"
                             gradient={{ from: 'blue', to: 'green', deg: 135 }}
                             size="xl"
                             weight={700}
-                            style={{ fontFamily: 'Greycliff CF, sans-serif', fontSize: matchesQuery ? '3rem' : '2rem'}}
+                            style={{ fontFamily: 'Greycliff CF, sans-serif', fontSize: matches600 ? '52px' : '1.2rem'}}
                         >
                             We love
                         </Text>
@@ -61,19 +63,20 @@ const Main = (props: object) => {
                             size="xl"
                             weight={700}
                             style={{ fontFamily: 'Greycliff CF, sans-serif',
-                                fontSize: matchesQuery ? '3rem' : '2rem',
+                                fontSize: matches600 ? '52px' : '1.2rem',
                                 position: 'relative',
-                                top: matchesQuery ? '-30px' : '-25px',
+                                top: matches600 ? '-30px' : '-10px',
                                 left: '5px'}}
                         >
                             Food & Technology
                         </Text>
                     </div>
                     <Text mx={10}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo, sem at pharetra faucibus, nulla tortor convallis elit, vel ornare leo nunc eu risus.</Text>
+                    <Button radius={"md"} variant={"filled"} color={'green'} m={15}>Our Partners</Button>
                 </div>
                 <div>
-                    <div style={{marginLeft: matchesQuery ? 50 : 5, marginRight: matchesQuery ? 50 : 5}}>
-                        <ImageN src={foodtechSVG}/>
+                    <div style={{marginLeft: matches860 ? 50 : 5, marginRight: matches860 ? 50 : 5}}>
+                        <ImageN src={foodtechSVG} />
                     </div>
                 </div>
             </Group>
