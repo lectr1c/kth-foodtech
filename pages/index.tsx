@@ -3,12 +3,14 @@ import Navigation from "../components/Navigation";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import WavesSpacer from "../components/WavesSpacer";
 
 const Home: NextPage = () => {
   return (
     <div>
         <Navigation/>
       <Main/>
+        <WavesSpacer/>
       <Footer/>
     </div>
   )

@@ -1,6 +1,9 @@
 import styled from "styled-components";
-import {Button, Card, Grid, Group, Text, Image, Badge} from "@mantine/core";
+import {Button, Card, Grid, Group, Text, Image, Badge, Title} from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+import ImageN from 'next/image';
 import { useColorScheme } from "@mantine/hooks";
+import foodtechSVG from '../public/foodtechIllustration.svg';
 
 import Link  from "next/link";
 import _Document from "../pages/_document";
@@ -34,60 +37,28 @@ const data = {
 
 const Main = (props: object) => {
     const colorScheme = useColorScheme();
+    const matchesQuery = useMediaQuery('(min-width: 860px)');
 
     return (
-        <div style={{height: '70vh', width: '100%', position: "relative"}}>
-            <Group position={"center"} spacing={"xl"}  style={{padding: 50}}>
-                <div style={{width: 740}}>
-                <Card shadow={"md"} padding={"xl"}>
-                        <Card.Section>
-                            <Image
-                                radius={0}
-                                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                                alt="Random unsplash image"
-                            />
-                        </Card.Section>
-                        <Group position="apart" style={{ marginBottom: 5}} mt={"sm"}>
-                            <Text weight={500}>Vigils accelerare in emeritis berolinum!</Text>
-                            <Badge color="pink" variant="light">
-                                BADGE
-                            </Badge>
-                        </Group>
-
-                        <Text size="sm" style={{ color: 'white', lineHeight: 1.5 }}>
-                                Sunt brabeutaes attrahendam festus, barbatus lunaes. Ubi est rusticus vortex?
-                        </Text>
-
-                        <Button variant="light" color="blue" fullWidth style={{ marginTop: 14 }}>
-                            Habitio, epos, et orgia.
-                        </Button>
-                    </Card>
+        <div style={{width: '100%', minHeight: matchesQuery ? '1000px' : '700px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
+            <Group position="center" spacing={100}>
+                <div>
+                    <Text
+                        component="span"
+                        align="center"
+                        variant="gradient"
+                        gradient={{ from: 'blue', to: 'green', deg: 45 }}
+                        size="xl"
+                        weight={700}
+                        style={{ fontFamily: 'Greycliff CF, sans-serif', fontSize: '52px'}}
+                    >
+                        KTH Foodtech
+                    </Text>
                 </div>
-                <div style={{width: 740}}>
-                    <Card shadow={"md"} padding={"xl"}>
-                        <Card.Section>
-                            <Image
-                                radius={0}
-                                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                                alt="Random unsplash image"
-                            />
-                        </Card.Section>
-                        <Group position="apart" style={{ marginBottom: 5}} mt={"sm"}>
-                            <Text weight={500}>Cur hydra credere?</Text>
-                            <Badge color="green" variant="light">
-                                On Sale
-                            </Badge>
-                        </Group>
-
-                        <Text size="sm" style={{ color: 'white', lineHeight: 1.5 }}>
-                            Ionicis tormentos unda in quadrata! Cum resistentia resistere, omnes ventuses reperire altus, fatalis canises.
-                            Placidus, gratis extums inciviliter captis de clemens, mirabilis amicitia.
-                        </Text>
-
-                        <Button variant="light" color="blue" fullWidth style={{ marginTop: 14 }}>
-                            Decor fatalis fermium est.
-                        </Button>
-                    </Card>
+                <div>
+                    <div style={{marginLeft: 50, marginRight: 50}}>
+                        <ImageN src={foodtechSVG}/>
+                    </div>
                 </div>
             </Group>
         </div>
