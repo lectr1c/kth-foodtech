@@ -40,17 +40,17 @@ const Main = (props: object) => {
     const matchesQuery = useMediaQuery('(min-width: 860px)');
 
     return (
-        <div style={{width: '100%', minHeight: matchesQuery ? '1000px' : '700px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <div style={{width: '100%', minHeight: matchesQuery ? '1000px' : '600px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Group position="center" spacing={100}>
-                <div>
-                    <div>
+                <div style={{maxWidth: '500px'}}>
+                    <div style={{maxHeight: matchesQuery ? '120px' : '70px', marginLeft: 10}}>
                         <Text
                             align="left"
                             variant="gradient"
                             gradient={{ from: 'blue', to: 'green', deg: 135 }}
                             size="xl"
                             weight={700}
-                            style={{ fontFamily: 'Greycliff CF, sans-serif', fontSize: matchesQuery ? '52px' : '40px'}}
+                            style={{ fontFamily: 'Greycliff CF, sans-serif', fontSize: matchesQuery ? '3rem' : '2rem'}}
                         >
                             We love
                         </Text>
@@ -61,7 +61,7 @@ const Main = (props: object) => {
                             size="xl"
                             weight={700}
                             style={{ fontFamily: 'Greycliff CF, sans-serif',
-                                fontSize: matchesQuery ? '52px' : '40px',
+                                fontSize: matchesQuery ? '3rem' : '2rem',
                                 position: 'relative',
                                 top: matchesQuery ? '-30px' : '-25px',
                                 left: '5px'}}
@@ -69,6 +69,7 @@ const Main = (props: object) => {
                             Food & Technology
                         </Text>
                     </div>
+                    <Text mx={10}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo, sem at pharetra faucibus, nulla tortor convallis elit, vel ornare leo nunc eu risus.</Text>
                 </div>
                 <div>
                     <div style={{marginLeft: matchesQuery ? 50 : 5, marginRight: matchesQuery ? 50 : 5}}>
