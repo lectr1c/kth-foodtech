@@ -21,10 +21,10 @@ const Navigation: NextComponentType = () => {
                     <Nav className="me-auto">
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#partners">Partners</Nav.Link>
-                        <Nav.Link href="#blog">Blog</Nav.Link>
-                        <Button variant="success" className="mx-3 my-sm-3 my-md-0">Events</Button>
+                        <Nav.Link href="#home"><span style={{color: "#E9ECEF"}}>Home</span></Nav.Link>
+                        <Nav.Link href="#partners"><span style={{color: "#E9ECEF"}}>Partners</span></Nav.Link>
+                        <Nav.Link href="#blog"><span style={{color: "#E9ECEF"}}>Blog</span></Nav.Link>
+                        <Button variant="success" className="mx-3 my-sm-3 my-md-0"><span style={{color: "#E9ECEF"}}>Events</span></Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
