@@ -42,7 +42,7 @@ const Main = (props: object) => {
 
 
     return (
-        <div style={{width: '100%', minHeight: matches860 ? '1000px' : matches600 ? '750px' : '600px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <div style={{width: '100%', minHeight: matches860 ? '75vh' : matches600 ? '750px' : '600px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Group position="center" spacing={100}>
                 <div style={{maxWidth: '500px'}}>
                     <div style={{maxHeight: matches600 ? '120px' : '70px', marginLeft: 10}}>
