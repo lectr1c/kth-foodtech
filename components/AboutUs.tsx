@@ -19,20 +19,21 @@ const AboutUs = () => {
     const scheme = theme.colorScheme;
     return (
         <div style={{
-            backgroundColor: scheme === 'dark' ? theme.colors.dark[4] : theme.colors.dark[2],
+            backgroundColor: scheme === 'dark' ? theme.colors.gray[8] : theme.colors.gray[4],
             width: '100%',
-            minHeight: '50vh',
             position: 'relative',
+            minHeight: '50vh',
             marginTop: matches860 ? '-50px' : '-30px',
             zIndex: -1,
-            color: "black",
+            color: scheme === "dark" ? "white" : "black",
+            paddingBottom: 100
         }}>
-            <Group direction={"column"} align={"center"} style={{ top: '30%', position: "relative"}} mx={matches860 ? 50 : 10}>
-                <Text variant={"gradient"} weight={600} gradient={{from: "green", to: "yellow", deg: 190}} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>About Us</Text>
+            <Group position={"center"} direction={"column"} style={{ top: matches600 ? '110px' : '70px', margin: "auto", position: "relative", width: matches860 ? '70vw' : '90vw'}}>
+                <Text variant={"gradient"} gradient={{from: 'green', to: 'yellow', deg: 180}} weight={300} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>About Us</Text>
                 <div>
-                    <Text weight={700} mb={0} align={"center"}>Our mission is to connect KTH students to the amazing and fast paced world of Foodtech as well as inspire them to make greener food choices</Text>
-                    <Divider color={"dark"} size={"sm"} my={10}/>
-                    <Text weight={500} align={"center"}>Make Foodtech mainstream by educating the students of KTH how Foodtech could be the main driver to save the planet as well as show how exciting food technology is
+                    <Text weight={400} mb={0} align={"center"}>Our mission is to connect KTH students to the amazing and fast paced world of Foodtech as well as inspire them to make greener food choices</Text>
+                    <Divider color={"dark"} size={"sm"} my={20} mx={100}/>
+                    <Text weight={300} align={matches600 ? "center" : "left"}>Make Foodtech mainstream by educating the students of KTH how Foodtech could be the main driver to save the planet as well as show how exciting food technology is
 
                         Inspire students to be part of this incredibly fast growing and vibrant industry and match their talents with awesome Foodtech companies
 
@@ -40,8 +41,6 @@ const AboutUs = () => {
                     </Text>
                 </div>
                </Group>
-
-
         </div>
     )
 }
