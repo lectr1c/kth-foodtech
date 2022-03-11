@@ -49,8 +49,8 @@ const Hero : NextComponentType = (props) => {
                         </Text>
                     </div>
                     <Text mx={10}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo, sem at pharetra faucibus, nulla tortor convallis elit, vel ornare leo nunc eu risus.</Text>
-                    <Button component={"span"} size={"md"} radius={"md"} variant={"outline"} color={'green'} m={15} ml={7}>Contact Us</Button>
-                    <Button component={"span"} size={"md"} radius={"md"} variant={"filled"} color={'green'} m={15} ml={7}>Our Partnerships</Button>
+                    <Button component={"span"} size={"md"} radius={"sm"} variant={"outline"} color={'green'} m={15} ml={7}>Contact Us</Button>
+                    <Button component={"span"} size={"md"} radius={"sm"} variant={"filled"} color={'green'} m={15} ml={7}>Our Partnerships</Button>
                 </div>
                 <div>
                     <div style={{marginLeft: matches860 ? 50 : 5, marginRight: matches860 ? 50 : 5}}>
