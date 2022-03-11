@@ -21,9 +21,9 @@ const SchemeToggler = () => {
             }}
         >
             {dark ? (
-                <SunIcon style={{ width: 18, height: 18 }} />
+                <SunIcon style={{ width: 25, height: 25 }} />
             ) : (
-                <MoonIcon style={{ width: 18, height: 18 }} />
+                <MoonIcon style={{ width: 25, height: 25 }} />
             )}
         </ActionIcon>
     );
