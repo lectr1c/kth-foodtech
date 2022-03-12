@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Head from 'next/head';
 import { useState} from "react";
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
