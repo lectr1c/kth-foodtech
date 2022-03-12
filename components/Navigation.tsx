@@ -1,34 +1,27 @@
 import {NextComponentType} from "next";
-import { Navbar, Container, NavDropdown, Nav, Offcanvas, Button } from "react-bootstrap";
+import {Button, Grid, MantineTheme, MantineThemeOverride} from "@mantine/core";
 import logo from "../public/logo.svg";
 import Image from "next/image";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {Group, useMantineTheme, MantineProvider, ColorScheme} from "@mantine/core";
 
 
 const Navigation: NextComponentType = () => {
+
+    const theme = useMantineTheme();
+
     return (
-        <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
-            <Container>
-                    <Image
-                        src={logo}
-                        height="40px"
-                        width="150px"
-                        className="d-inline-block align-top reverseColors"
-                        alt="KTH Foodtech logo"
-                    />
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                    </Nav>
-                    <Nav>
-                        <Nav.Link href="#home"><span style={{color: "#E9ECEF"}}>Home</span></Nav.Link>
-                        <Nav.Link href="#partners"><span style={{color: "#E9ECEF"}}>Partners</span></Nav.Link>
-                        <Nav.Link href="#blog"><span style={{color: "#E9ECEF"}}>Blog</span></Nav.Link>
-                        <Button variant="success" className="mx-3 my-sm-3 my-md-0"><span style={{color: "#E9ECEF"}}>Events</span></Button>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+            <div style={{width: '100%', height: '60px', backgroundColor: theme.colors.dark[6], marginBottom: '20px'}}>
+                <Group align={"center"} position={"apart"} sx={{height: '100%', justifyContent:"space-around"}} noWrap>
+                    <Button size={"sm"} variant={"light"} color={"teal"} px={10} style={{ display: "inline-block", verticalAlign: "middle"}}>Partnerships</Button>
+                    <a style={{display: "inline-block", verticalAlign: "middle", maxHeight: '60px', maxWidth: '180px', minWidth: '100px', position: "relative", marginTop: '5px'}}>
+                        <Image
+                           src={logo}
+                           alt="KTH Foodtech logo"
+                        />
+                    </a>
+                    <Button size={"sm"} variant={"subtle"}  style={{display: "inline-block", verticalAlign: "middle"}}>Events</Button>
+                </Group>
+            </div>
     )
 }
 
