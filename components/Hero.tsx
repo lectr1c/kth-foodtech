@@ -9,18 +9,18 @@ import {NextComponentType} from "next";
 
 const Hero : NextComponentType = (props) => {
 
-    const [matches860, set860] = useState(true);
+    const [matches800, set800] = useState(true);
     const [matches600, set600] = useState(true);
 
     const { width } = useViewportSize();
 
     useEffect(() => {
-        set860(window.matchMedia('(min-width: 800px)').matches);
+        set800(window.matchMedia('(min-width: 800px)').matches);
         set600(window.matchMedia('(min-width: 600px)').matches);
     }, [width])
 
     return (
-        <div style={{width: '100%', minHeight: matches860 ? '80vh' : matches600 ? '750px' : '600px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <div style={{width: '100%', minHeight: matches800 ? '80vh' : '400px', position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Group position="center" spacing={100}>
                 <div style={{maxWidth: '500px'}}>
                     <div style={{maxHeight: matches600 ? '120px' : '70px', marginLeft: 10}}>
@@ -53,8 +53,11 @@ const Hero : NextComponentType = (props) => {
                     <Button component={"span"} size={"md"} radius={"sm"} variant={"filled"} color={'green'} m={15} ml={7}>Our Partnerships</Button>
                 </div>
                 <div>
-                    <div style={{marginLeft: matches860 ? 50 : 5, marginRight: matches860 ? 50 : 5}}>
-                        <ImageN src={foodtechSVG} width={600}/>
+                    <div style={{
+                        marginLeft: matches800 ? 50 : 5, marginRight: matches800 ? 50 : 5,
+                        display: matches800 ? "inherit" : "none"
+                    }}>
+                        <ImageN src={foodtechSVG} width={800}/>
                     </div>
                 </div>
             </Group>

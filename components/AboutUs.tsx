@@ -19,21 +19,20 @@ const AboutUs = () => {
     const scheme = theme.colorScheme;
     return (
         <div style={{
-            backgroundColor: scheme === 'dark' ? theme.colors.gray[8] : theme.colors.gray[4],
             width: '100%',
             position: 'relative',
-            minHeight: '50vh',
-            marginTop: matches860 ? '-50px' : '-30px',
+            minHeight: 'auto',
+            marginTop: matches860 ? '-60px' : '-20px',
             zIndex: -1,
             color: scheme === "dark" ? "white" : "black",
             paddingBottom: 100
         }}>
             <Group position={"center"} direction={"column"} style={{ top: matches600 ? '110px' : '70px', margin: "auto", position: "relative", width: matches860 ? '70vw' : '90vw'}}>
-                <Text color={"teal"} weight={300} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>About Us</Text>
+                <Text variant={"gradient"} gradient={{from: 'teal', to: 'cyan', deg: 180}} weight={400} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>About Us</Text>
                 <div>
                     <Text weight={400} mb={0} align={"center"}>Our mission is to connect KTH students to the amazing and fast paced world of Foodtech as well as inspire them to make greener food choices</Text>
                     <Divider color={"dark"} size={"sm"} my={20} mx={100}/>
-                    <Text weight={300} align={matches600 ? "center" : "left"}>Make Foodtech mainstream by educating the students of KTH how Foodtech could be the main driver to save the planet as well as show how exciting food technology is
+                    <Text weight={300} align={matches600 ? "center" : "left"} sx={{paddingBottom: '7vw'}}>Make Foodtech mainstream by educating the students of KTH how Foodtech could be the main driver to save the planet as well as show how exciting food technology is
 
                         Inspire students to be part of this incredibly fast growing and vibrant industry and match their talents with awesome Foodtech companies
 
