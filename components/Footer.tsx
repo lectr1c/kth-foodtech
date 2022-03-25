@@ -1,58 +1,56 @@
-import styled from 'styled-components';;
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarked } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import { createStyles, Container, Group, ActionIcon } from '@mantine/core';
+import {BrandLinkedin, BrandFacebook, BrandInstagram } from 'tabler-icons-react';
+import { Avatar } from '@mantine/core';
 
-const StyledFooterContainer = styled.footer`
-  position: relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: fit-content;
-  background: #111517;
-  z-index: 1;
-`;
-const StyledFooterList = styled.div`
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-  align-items: center;
-  color: white;
-  padding-left: 0;
-  font-family: ubuntu;
-  font-size: 14px;
-  margin: 0;
-  padding: 0;
-`;
+const useStyles = createStyles((theme) => ({
+  footer: {
+    marginTop: 120,
+    borderTop: `1px solid ${
+      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
+    }`,
+  },
 
-const StyledTitle = styled.p`
-  font-family: ubuntu;  
-  font-size: 14px;
-  margin: 15px;
-`;
-const StyledCopywrightIcon = styled.span``;
+  inner: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: theme.spacing.xl,
+    paddingBottom: theme.spacing.xl,
 
+    [theme.fn.smallerThan('xs')]: {
+      flexDirection: 'column',
+    },
+  },
 
-const Footer = () => {
+  links: {
+    [theme.fn.smallerThan('xs')]: {
+      marginTop: theme.spacing.md,
+    },
+  },
+}));
 
-    return (
-        <div>
-          <StyledFooterContainer>
-            <StyledFooterList>
-              <StyledCopywrightIcon>
-                <FontAwesomeIcon icon={faEnvelope} size="2x" />
-              </StyledCopywrightIcon>
-              <StyledTitle><a>info@kthfoodtech.se</a></StyledTitle>
-            </StyledFooterList>
-            <StyledFooterList>
-              <StyledCopywrightIcon>
-                <FontAwesomeIcon icon={faMapMarked} size="2x" />
-              </StyledCopywrightIcon>
-              <StyledTitle>Drottning Kristinas väg 15-19, 114 28 Stockholm</StyledTitle>
-            </StyledFooterList>
-          </StyledFooterContainer>    
-        </div>
-    )
+export function Footer() {
+  const { classes } = useStyles();
+
+  return (
+    <div className={classes.footer}>
+      <Container className={classes.inner}>
+      <Avatar src="add later" alt="logo" />
+        <Group spacing={0} className={classes.links} position="right" noWrap>
+          <ActionIcon size="lg">
+            <BrandLinkedin size={18} />
+          </ActionIcon>
+          <ActionIcon size="lg">
+            <BrandFacebook size={18} />
+          </ActionIcon>
+          <ActionIcon size="lg">
+            <BrandInstagram size={18} />
+          </ActionIcon>
+        </Group>
+      </Container>
+    </div>
+  );
 }
-
 export default Footer;
+
