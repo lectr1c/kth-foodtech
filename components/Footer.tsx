@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles, Container, Group, ActionIcon } from '@mantine/core';
-import {BrandLinkedin, BrandFacebook, BrandInstagram } from 'tabler-icons-react';
+import { BrandLinkedin, BrandFacebook, BrandInstagram } from 'tabler-icons-react';
 import { Avatar } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
