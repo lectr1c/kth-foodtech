@@ -2,7 +2,7 @@ import Hero from "./Hero";
 import AboutUs from "./AboutUs";
 import WavesSpacer from "./WavesSpacer";
 import TheTeam from "../components/TheTeam";
-import Testnew from "../components/testtest";
+import ContactUs from "./ContactUs"
 import {NextComponentType} from "next";
 import {Divider} from "@mantine/core";
 
@@ -20,11 +20,7 @@ const Main: NextComponentType = (props?: Object) => {
             <Divider color={"cyan"} size={16}/>
             <TheTeam/>
             <WavesSpacer/>
-            <Testnew/>
-            
-            
-            
-
+            <ContactUs/>
         </>
     )
 }
