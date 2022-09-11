@@ -1,7 +1,10 @@
 import React from 'react';
 import { createStyles, Container, Group, ActionIcon } from '@mantine/core';
 import { BrandLinkedin, BrandFacebook, BrandInstagram } from 'tabler-icons-react';
-import { Avatar } from '@mantine/core';
+import Image from "next/image";
+import logo from "../public/logo.svg";
+import darklogo from "../public/blacklogo.svg";
+import {useMantineTheme} from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -32,11 +35,17 @@ const useStyles = createStyles((theme) => ({
 
 export function Footer() {
   const { classes } = useStyles();
+  const theme = useMantineTheme();
 
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
-      <Avatar src="add later" alt="logo" />
+      <a style={{display: "inline-block", verticalAlign: "middle", maxHeight: '60px', maxWidth: '180px', minWidth: '100px', position: "relative", marginTop: '5px'}}>
+                        <Image
+                          src={theme.colorScheme == 'dark' ? logo : darklogo }
+                          alt="KTH Foodtech logo"
+                        />
+                    </a>
         <Group spacing={0} className={classes.links} position="right" noWrap>
           <ActionIcon size="lg">
             <BrandLinkedin size={18} />

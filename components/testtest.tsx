@@ -2,7 +2,7 @@ import {Box, Center, Container, Divider, Group, Text, Title, useMantineTheme} fr
 import {useEffect, useState} from "react";
 import {useViewportSize} from "@mantine/hooks";
 
-const AboutUs = () => {
+const Testnew = () => {
 
     const [matches860, set860] = useState(true);
     const [matches600, set600] = useState(true);
@@ -39,9 +39,9 @@ const AboutUs = () => {
                         Showcase how many different amazing plant-based food options we have today by letting the students get first-hand experience in order to make it easier to make greener food choices.
                     </Text>
                 </div>
-            </Group>
+               </Group>
         </div>
     )
 }
 
-export default AboutUs;
+export default Testnew;
