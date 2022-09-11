@@ -38,7 +38,6 @@ const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
     const theme = useMantineTheme();
     const { classes } = useStyles();
     const scheme = theme.colorScheme;
-
     return (
         <div style={{
             width: '100%',
