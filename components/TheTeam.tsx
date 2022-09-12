@@ -49,7 +49,7 @@ const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
             color: scheme === "dark" ? "white" : "black",
             paddingBottom: 100
         }}>
-          <Group position={"center"} direction={"column"} style={{ top: matches600 ? '110px' : '70px', margin: "auto", position: "relative", width: matches860 ? '70vw' : '90vw'}}>
+          <Group position={"center"} style={{ top: matches600 ? '110px' : '70px', margin: "auto", position: "relative", width: matches860 ? '70vw' : '90vw'}}>
             <Text variant={"gradient"} gradient={{from: 'teal', to: 'cyan', deg: 180}} weight={400} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>The Team</Text>
               <div style={{
                 width: '100%',

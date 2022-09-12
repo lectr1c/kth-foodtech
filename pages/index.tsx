@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import TheTeam from "../components/TheTeam";
 import Main from "../components/Main";
 import SchemeToggler from "../components/SchemeToggler";
+import FBMessenger from "../components/FBMessenger";
 
 
 const Home: NextPage = () => {
@@ -13,6 +14,7 @@ const Home: NextPage = () => {
         <Main/>
         <Footer/>
         <SchemeToggler/>
+        <FBMessenger/>
     </div>
   )
 }
