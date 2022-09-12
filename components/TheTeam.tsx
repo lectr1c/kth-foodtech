@@ -22,7 +22,9 @@ interface TheTeam{
   phone: string;
   email: string;
 }
-const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
+
+//const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
+const TheTeam = () => {
 
     const [matches860, set860] = useState(true);
     const [matches600, set600] = useState(true);
@@ -64,10 +66,10 @@ const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
                   <Avatar src='' alt='some name' size={94} radius="md"/>
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                      {title = 'Project Manager'}
+                      Project Manager
                     </Text>
                     <Text size="lg" weight={500} className={classes.name}>
-                      {name = 'Patricia'}
+                      Patricia
                     </Text>
 
                     <Group noWrap spacing={10} mt={3}>
@@ -77,13 +79,13 @@ const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
                     </Group>
                   </div>
 
-                  <Avatar src={avatar} size={94} radius="md" />
+                  <Avatar size={94} radius="md" />
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                      {title = 'Cooporate Relations'}
+                      Cooporate Relations
                     </Text>
                     <Text size="lg" weight={500} className={classes.name}>
-                      {name = 'John'}
+                        John
                     </Text>
                     <Group noWrap spacing={10} mt={3}>
                       <ActionIcon size='lg'>
@@ -92,13 +94,13 @@ const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
                     </Group>
                   </div>
 
-                  <Avatar src={avatar} size={94} radius="md" />
+                  <Avatar size={94} radius="md" />
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                      {title = 'Public Relations'}
+                      Public Relations
                     </Text>
                     <Text size="lg" weight={500} className={classes.name}>
-                      {name = 'Susan'}
+                      Susan
                     </Text>
                     <Group noWrap spacing={10} mt={3}>
                       <ActionIcon size='lg'>
@@ -107,13 +109,13 @@ const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
                     </Group>
                   </div>
 
-                  <Avatar src={avatar} size={94} radius="md" />
+                  <Avatar size={94} radius="md" />
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                      {title = 'Event Manager'}
+                      Event Manager
                     </Text>
                     <Text size="lg" weight={500} className={classes.name}>
-                      {name = 'Phil'}
+                      Phil
                     </Text>
                     <Group noWrap spacing={10} mt={3}>
                       <ActionIcon size='lg'>
@@ -122,13 +124,13 @@ const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
                     </Group>
                   </div>
 
-                  <Avatar src={avatar} size={94} radius="md" />
+                  <Avatar size={94} radius="md" />
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                      {title = 'Web Developer'}
+                      Web Developer
                     </Text>
                     <Text size="lg" weight={500} className={classes.name}>
-                      {name = 'Jabez'}
+                        Jabez
                     </Text>
                     <Group noWrap spacing={10} mt={3}>
                       <ActionIcon size='lg'>
