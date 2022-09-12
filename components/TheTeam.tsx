@@ -1,4 +1,4 @@
-import { createStyles, Divider, Group, Text, Title, useMantineTheme, ActionIcon, Avatar} from "@mantine/core";
+import { createStyles, Divider, Group, Text, Title, useMantineTheme, ActionIcon, Avatar, Autocomplete} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {useViewportSize} from "@mantine/hooks";
 import { BrandLinkedin, BrandTwitter } from 'tabler-icons-react';
@@ -19,10 +19,7 @@ interface TheTeam{
   avatar: string;
   name: string;
   title: string;
-  phone: string;
-  email: string;
-}
-const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
+}const TheTeam = ({avatar, name, title,}: TheTeam) => {
 
     const [matches860, set860] = useState(true);
     const [matches600, set600] = useState(true);
@@ -55,6 +52,7 @@ const TheTeam = ({avatar, name, title, phone, email}: TheTeam) => {
                 position:'relative',
                 minHeight: 'auto',
                 zIndex: -1, 
+                margin: 'auto',
                 marginTop: 50,
                 paddingBottom: 100
             }}>

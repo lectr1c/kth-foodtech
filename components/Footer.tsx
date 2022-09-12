@@ -6,7 +6,6 @@ import logo from "../public/logo.svg";
 import darklogo from "../public/blacklogo.svg";
 import {useMantineTheme} from "@mantine/core";
 
-import Burger from '../.pictures/foodtech-burger-pic.jpeg'
 
 const useStyles = createStyles((theme) => ({
   footer: {

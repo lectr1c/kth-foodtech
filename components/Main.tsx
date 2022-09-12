@@ -18,7 +18,7 @@ const Main: NextComponentType = (props?: Object) => {
             <Divider color={"green"} size={10}/>
             <Divider color={"teal"} size={13}/>
             <Divider color={"cyan"} size={16}/>
-            <TheTeam/>
+            <TheTeam avatar={""} name={""} title={""}/>
             <WavesSpacer/>
             <ContactUs/>
         </>
