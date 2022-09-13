@@ -3,9 +3,10 @@ import Head from 'next/head';
 import { useState} from "react";
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import '../styles/globals.css';
+import { SessionProvider } from "next-auth/react"
 
-export default function App(props: AppProps) {
-    const { Component, pageProps } = props;
+// @ts-ignore
+export default function App({ Component, pageProps: { session, ...pageProps }}) {
 
     const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
     const toggleColorScheme = (value?: ColorScheme) =>
@@ -25,7 +26,9 @@ export default function App(props: AppProps) {
                 withGlobalStyles
                 withNormalizeCSS
                 theme={{ colorScheme }}>
-                <Component {...pageProps} />
+                <SessionProvider session={session}>
+                    <Component {...pageProps} />
+                </SessionProvider>
             </MantineProvider>
             </ColorSchemeProvider>
         </>

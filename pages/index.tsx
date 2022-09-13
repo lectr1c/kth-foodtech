@@ -15,6 +15,7 @@ const Home: NextPage = () => {
         <Footer/>
         <SchemeToggler/>
         <FBMessenger/>
+
     </div>
   )
 }
