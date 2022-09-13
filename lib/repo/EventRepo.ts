@@ -8,14 +8,14 @@ class EventRepo {
         mongoose.connect("mongodb+srv://lectr1c:" + process.env.MONGO_PASS + "@cluster0.0w2vvps.mongodb.net/?retryWrites=true&w=majority")
     }
 
-    async addEvent(Title: string, Brief: number, Description: string, ImageURL: string) : Promise<TEvent>{
+    async addEvent(event : TEvent) : Promise<TEvent>{
         try {
             return await EventsModel.create({
-                Title: Title,
-                Brief: Brief,
-                Description: Description,
-                ImageLink: ImageURL,
-                DatePosted: new Date()
+                title: event.title,
+                brief: event.brief,
+                description: event.description,
+                imageURL: event.imageURL,
+                datePosted: new Date()
             })
         } catch (e : MongooseError | any) {
             return e;
@@ -24,11 +24,11 @@ class EventRepo {
 
     async getEvents() : Promise<TEvent[]> {
         try {
-            const log = await EventsModel.find({}, ["Title", "Brief", "Description", "DatePosted", "ImageLink"], {
+            const events = await EventsModel.find({}, ["Title", "Brief", "Description", "DatePosted", "ImageLink"], {
                 sort: {
                     DatePosted: -1
                 }});
-            return log;
+            return events;
         } catch (e : MongooseError | any) {
             return e
         }
