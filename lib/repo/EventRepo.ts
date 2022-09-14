@@ -4,9 +4,6 @@ import { TEvent } from '../../types';
 import eventModel from "../model/EventsModel";
 
 class EventRepo {
-    constructor() {
-        mongoose.connect("mongodb+srv://lectr1c:" + process.env.MONGO_PASS + "@cluster0.0w2vvps.mongodb.net/?retryWrites=true&w=majority")
-    }
 
     async addEvent(event : TEvent) : Promise<TEvent>{
         try {

@@ -5,16 +5,13 @@ import eventModel from "../model/EventsModel";
 import {ObjectID} from "bson";
 
 class StaffRepo {
-    constructor() {
-        mongoose.connect("mongodb+srv://lectr1c:" + process.env.MONGO_PASS + "@cluster0.0w2vvps.mongodb.net/?retryWrites=true&w=majority")
-    }
 
     async addStaff(staff: TStaff) : Promise<TStaff>{
         try {
             return await StaffModel.create({
-                Name: staff.name,
-                Email: staff.email,
-                PictureURL: staff.pictureURL
+                name: staff.name,
+                email: staff.email,
+                pictureURL: staff.pictureURL
             })
         } catch (e : MongooseError | any) {
             return e;

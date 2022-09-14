@@ -1,6 +1,8 @@
 import mongoose, {Schema} from "mongoose"
 import {string} from "prop-types";
 
+const conn = mongoose.createConnection("mongodb+srv://root:" + process.env.MONGO_PASS + "@kthfoodtech.tm3zvaf.mongodb.net/?retryWrites=true&w=majority")
+
 const Staff = new mongoose.Schema({
     id: Number,
     name: String,
@@ -8,6 +10,6 @@ const Staff = new mongoose.Schema({
     pictureURL: String
 })
 
-const StaffModel = mongoose.models.Staff || mongoose.model("Staff", Staff);
+const StaffModel = conn.models.Staff || conn.model("Staff", Staff);
 
 export default StaffModel;
