@@ -1,11 +1,13 @@
 import React from 'react';
-import { createStyles, Container, Group, ActionIcon } from '@mantine/core';
+import { createStyles, Container, Group, ActionIcon, Popover, Avatar, Button } from '@mantine/core';
 import { BrandLinkedin, BrandFacebook, BrandInstagram } from 'tabler-icons-react';
 import Image from "next/image";
 import logo from "../public/logo.svg";
 import darklogo from "../public/blacklogo.svg";
 import {useMantineTheme} from "@mantine/core";
 
+import Burger from '../.pictures/foodtech-burger-pic.jpeg'
+import {signIn, signOut, useSession} from "next-auth/react";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -35,6 +37,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export function Footer() {
+  const {data: session} = useSession();
   const { classes } = useStyles();
   const theme = useMantineTheme();
 
@@ -64,6 +67,24 @@ export function Footer() {
             </a>
           </ActionIcon>
         </Group>
+        <Popover width={200} position="bottom" withArrow shadow="md">
+          <Popover.Target>
+            <Avatar alt="logo"/>
+          </Popover.Target>
+          <Popover.Dropdown>
+
+            {!session && (<>
+              Please Sign In
+              <Button onClick={() => signIn('google')}>Sign in</Button>
+            </>)}
+
+
+
+            {session && (<> Signed in as {session.user?.name}
+              <Button color={"red"} onClick={() => signOut()} mt={10}>Sign Out</Button>
+            </>)}
+          </Popover.Dropdown>
+        </Popover>
       </Container>
     </div>
   );

@@ -1,14 +1,21 @@
 
 type TEvent = {
-    id?: Number,
-    DatePosted?: Date,
-    DateUpdated?: Date,
-    Title?: String,
-    Brief?: String,
-    Description?: String,
-    ImageURL?: String
+    id?: number,
+    datePosted?: Date,
+    dateUpdated?: Date,
+    title?: string,
+    brief?: string,
+    description?: string,
+    imageURL?: string
+}
+
+type TStaff = {
+    id?: number,
+    name: string,
+    email: string,
+    pictureURL: string
 }
 
 export type {
-    TEvent
+    TEvent, TStaff
 }
