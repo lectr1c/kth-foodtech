@@ -19,7 +19,8 @@ interface TheTeam{
   avatar: string;
   name: string;
   title: string;
-}const TheTeam = ({avatar, name, title,}: TheTeam) => {
+}
+const TheTeam = ({avatar, name, title}: TheTeam) => {
 
     const [matches860, set860] = useState(true);
     const [matches600, set600] = useState(true);
@@ -45,7 +46,7 @@ interface TheTeam{
             color: scheme === "dark" ? "white" : "black",
             paddingBottom: 100
         }}>
-          <Group position={"center"} direction={"column"} style={{ top: matches600 ? '110px' : '70px', margin: "auto", position: "relative", width: matches860 ? '70vw' : '90vw'}}>
+          <Group position={"center"} style={{ top: matches600 ? '110px' : '70px', margin: "auto", position: "relative", width: matches860 ? '70vw' : '90vw'}}>
             <Text variant={"gradient"} gradient={{from: 'teal', to: 'cyan', deg: 180}} weight={400} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>The Team</Text>
               <div style={{
                 width: '100%',
@@ -61,10 +62,10 @@ interface TheTeam{
                   <Avatar src='' alt='some name' size={94} radius="md"/>
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                      {title = 'Project Manager'}
+                      Project Manager
                     </Text>
                     <Text size="lg" weight={500} className={classes.name}>
-                      {name = 'Patricia'}
+                      Patricia
                     </Text>
 
                     <Group noWrap spacing={10} mt={3}>
@@ -74,13 +75,13 @@ interface TheTeam{
                     </Group>
                   </div>
 
-                  <Avatar src={avatar} size={94} radius="md" />
+                  <Avatar size={94} radius="md" />
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                      {title = 'Cooporate Relations'}
+                      Cooporate Relations
                     </Text>
                     <Text size="lg" weight={500} className={classes.name}>
-                      {name = 'John'}
+                        John
                     </Text>
                     <Group noWrap spacing={10} mt={3}>
                       <ActionIcon size='lg'>
@@ -89,13 +90,13 @@ interface TheTeam{
                     </Group>
                   </div>
 
-                  <Avatar src={avatar} size={94} radius="md" />
+                  <Avatar size={94} radius="md" />
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                      {title = 'Public Relations'}
+                      Public Relations
                     </Text>
                     <Text size="lg" weight={500} className={classes.name}>
-                      {name = 'Susan'}
+                      Susan
                     </Text>
                     <Group noWrap spacing={10} mt={3}>
                       <ActionIcon size='lg'>
@@ -104,13 +105,13 @@ interface TheTeam{
                     </Group>
                   </div>
 
-                  <Avatar src={avatar} size={94} radius="md" />
+                  <Avatar size={94} radius="md" />
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                      {title = 'Event Manager'}
+                      Event Manager
                     </Text>
                     <Text size="lg" weight={500} className={classes.name}>
-                      {name = 'Phil'}
+                      Phil
                     </Text>
                     <Group noWrap spacing={10} mt={3}>
                       <ActionIcon size='lg'>
@@ -119,13 +120,13 @@ interface TheTeam{
                     </Group>
                   </div>
 
-                  <Avatar src={avatar} size={94} radius="md" />
+                  <Avatar size={94} radius="md" />
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
-                      {title = 'Web Developer'}
+                      Web Developer
                     </Text>
                     <Text size="lg" weight={500} className={classes.name}>
-                      {name = 'Jabez'}
+                        Jabez
                     </Text>
                     <Group noWrap spacing={10} mt={3}>
                       <ActionIcon size='lg'>
