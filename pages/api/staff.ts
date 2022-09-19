@@ -44,7 +44,6 @@ export default async function handler(
 
       if (req.method == "GET") {
           if (req.body.id){
-              console.log("hhh")
 
           } else {
               staffRepo.getStaff()
