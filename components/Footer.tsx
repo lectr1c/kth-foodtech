@@ -61,7 +61,7 @@ export function Footer() {
               <BrandFacebook size={18}/>
             </a>
           </ActionIcon>
-          <ActionIcon component ='a' size="lg">
+          <ActionIcon size="lg">
             <a href='https://www.instagram.com/kthfoodtech/'>
               <BrandInstagram size={18}/>
             </a>
@@ -69,7 +69,7 @@ export function Footer() {
         </Group>
         <Popover width={200} position="bottom" withArrow shadow="md">
           <Popover.Target>
-            <Avatar alt="logo"/>
+            <Avatar src={session?.user?.image} alt="logo"/>
           </Popover.Target>
           <Popover.Dropdown>
 

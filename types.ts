@@ -1,6 +1,6 @@
 
 type TEvent = {
-    id?: number,
+    _id?: number,
     datePosted?: Date,
     dateUpdated?: Date,
     title?: string,
@@ -10,9 +10,10 @@ type TEvent = {
 }
 
 type TStaff = {
-    id?: number,
+    _id?: number,
     name: string,
     email: string,
+    role: string,
     pictureURL: string
 }
 

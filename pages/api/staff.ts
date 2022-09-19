@@ -19,14 +19,14 @@ export default async function handler(
   const session = await getToken({req, secret});
 
   return new Promise(resolve => {
-    // if (req.method != "GET") {
-    //     const exists = staffRepo.emailExists(session?.email ? session.email : "**X**").then(value => {
-    //         if (!value) {
-    //             res.status(403).json({name: "Unauthorised"});
-    //             return resolve;
-    //         }
-    //     });
-    // }
+    if (req.method != "GET") {
+        const exists = staffRepo.emailExists(session?.email ? session.email : "**X**").then(value => {
+            if (!value) {
+                res.status(403).json({name: "Unauthorised"});
+                return resolve;
+            }
+        });
+    }
 
       if (req.method == "POST") {
           staffRepo.addStaff({
@@ -42,9 +42,19 @@ export default async function handler(
       }
 
       if (req.method == "GET") {
-          const exists = staffRepo.emailExists("abdulrazzaq.ddd@gmail.com").then(value => {
-          });
+          if (req.body.id){
+              console.log("hhh")
 
+          } else {
+              staffRepo.getStaff()
+                  .then(value => {
+                      // @ts-ignore
+                      res.status(200).json(value);
+                  })
+                  .catch(err => {
+                      res.status(400).json(err);
+                  })
+          }
       }
     return resolve;
   })

@@ -5,7 +5,7 @@ const FBMessenger = () => {
 
     return (
         <>
-            <MessengerChat pageId={"618271412009538"} loggedInGreeting={"Hello!"} loggedOutGreeting={"Goodbye!"} themeColor={"#007d00"}/>
+            <MessengerChat pageId={"618271412009538"} loggedInGreeting={"Welcome to KTH Foodtech! Have anything in mind? Ask here!"} loggedOutGreeting={"Goodbye!"} themeColor={"#00e304"}/>
         </>
     )
 

@@ -5,6 +5,7 @@ import foodtechSVG from '../public/foodtechIllustration.svg';
 import {useEffect, useState} from "react";
 import SchemeToggler from "./SchemeToggler";
 import {NextComponentType} from "next";
+import styles from "../styles/Home.module.css";
 
 
 const Hero : NextComponentType = (props) => {
@@ -49,15 +50,15 @@ const Hero : NextComponentType = (props) => {
                         </Text>
                     </div>
                     <Text mx={10}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo, sem at pharetra faucibus, nulla tortor convallis elit, vel ornare leo nunc eu risus.</Text>
-                    <Button component={"span"} size={"md"} radius={"sm"} variant={"outline"} color={'green'} m={15} ml={7}>Contact Us</Button>
-                    <Button component={"span"} size={"md"} radius={"sm"} variant={"filled"} color={'green'} m={15} ml={7}>Our Partnerships</Button>
+                    <Button component={"a"} href={"#contact"} size={"md"} radius={"sm"} variant={"outline"} color={'green'} m={15} ml={7}>Contact Us</Button>
+                    <Button component={"a"} href={"/events"} radius={"sm"} variant={"filled"} color={'green'} m={15} ml={7}>Our Partnerships</Button>
                 </div>
                 <div>
                     <div style={{
                         marginLeft: matches800 ? 50 : 5, marginRight: matches800 ? 50 : 5,
                         display: matches800 ? "inherit" : "none"
                     }}>
-                        <ImageN src={foodtechSVG} width={800}/>
+                        <ImageN className={styles.labImage} src={foodtechSVG} width={800}/>
                     </div>
                 </div>
             </Group>

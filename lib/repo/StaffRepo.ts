@@ -1,8 +1,6 @@
 import StaffModel from "../model/StaffModel";
-import mongoose, {MongooseError} from "mongoose";
+import {MongooseError} from "mongoose";
 import {TStaff} from '../../types';
-import eventModel from "../model/EventsModel";
-import {ObjectID} from "bson";
 
 class StaffRepo {
 
@@ -11,7 +9,8 @@ class StaffRepo {
             return await StaffModel.create({
                 name: staff.name,
                 email: staff.email,
-                pictureURL: staff.pictureURL
+                pictureURL: staff.pictureURL,
+                role: staff.role
             })
         } catch (e : MongooseError | any) {
             return e;
@@ -20,12 +19,9 @@ class StaffRepo {
 
     async getStaff() : Promise<TStaff[]> {
         try {
-            const staff = await StaffModel.find({}, ["Name", "Email", "PictureURL"], {
-                sort: {
-                    DatePosted: -1
-                }});
-            return staff;
+            return await StaffModel.find({});
         } catch (e : MongooseError | any) {
+            console.log(e);
             return e
         }
     }
@@ -41,8 +37,7 @@ class StaffRepo {
 
     async emailExists(email: string) : Promise<{ _id: any } | null> {
         try {
-            const exists = await StaffModel.exists({email: email});
-            return exists;
+            return await StaffModel.exists({email: email});
         } catch (e : MongooseError | any) {
             return e;
         }
