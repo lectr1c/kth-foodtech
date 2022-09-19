@@ -25,7 +25,7 @@ const Staff = () => {
             {staffList.map(staff => {
                 return (
                     <div key={staff._id} className={styles.staffCard}>
-                        <Avatar src={"staff.pictureURL"} alt={staff.name} size={130} radius="md"/>
+                        <Avatar src={staff.pictureURL} alt={staff.name} size={130} radius="md"/>
                         <div>
                             <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
                                 {staff.role}
