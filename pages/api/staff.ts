@@ -32,7 +32,8 @@ export default async function handler(
           staffRepo.addStaff({
               name: req.body.name,
               email: req.body.email,
-              pictureURL: req.body.pictureURL
+              pictureURL: req.body.pictureURL,
+              role: req.body.role
           }).then(r => {
               // @ts-ignore
               res.status(200).json({...r._doc});

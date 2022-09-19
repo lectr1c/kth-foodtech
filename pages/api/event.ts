@@ -28,35 +28,35 @@ export default async function handler(
             });
         }
 
-        if (req.method == "POST") {
-            staffRepo.addStaff({
-                name: req.body.name,
-                email: req.body.email,
-                pictureURL: req.body.pictureURL,
-                role: req.body.role
-            }).then(r => {
-                // @ts-ignore
-                res.status(200).json({...r._doc});
-            }).catch(err => {
-                res.status(400);
-            });
-        }
-
-        if (req.method == "GET") {
-            if (req.body.id){
-                console.log("hhh")
-
-            } else {
-                staffRepo.getStaff()
-                    .then(value => {
-                        // @ts-ignore
-                        res.status(200).json(value);
-                    })
-                    .catch(err => {
-                        res.status(400).json(err);
-                    })
-            }
-        }
+        // if (req.method == "POST") {
+        //     staffRepo.addStaff({
+        //         name: req.body.name,
+        //         email: req.body.email,
+        //         pictureURL: req.body.pictureURL,
+        //         role: req.body.role
+        //     }).then(r => {
+        //         // @ts-ignore
+        //         res.status(200).json({...r._doc});
+        //     }).catch(err => {
+        //         res.status(400);
+        //     });
+        // }
+        //
+        // if (req.method == "GET") {
+        //     if (req.body.id){
+        //         console.log("hhh")
+        //
+        //     } else {
+        //         staffRepo.getStaff()
+        //             .then(value => {
+        //                 // @ts-ignore
+        //                 res.status(200).json(value);
+        //             })
+        //             .catch(err => {
+        //                 res.status(400).json(err);
+        //             })
+        //     }
+        // }
         return resolve;
     })
 }
