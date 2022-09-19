@@ -27,7 +27,6 @@ export default async function handler(
                 }
             });
         }
-
         // if (req.method == "POST") {
         //     staffRepo.addStaff({
         //         name: req.body.name,
