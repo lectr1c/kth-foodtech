@@ -11,7 +11,7 @@ const Staff = () => {
     const [staffList, setStaff] = useListState<TStaff>([]);
 
     useEffect(() => {
-        axios.get("https://www.kthfoodtech.se/api/staff")
+        axios.get("http://localhost:3000/api/staff")
             .then(value => {
                 setStaff.setState(value.data);
                 console.log(staffList);

@@ -1,0 +1,70 @@
+import {useListState, useViewportSize} from "@mantine/hooks";
+import {TEvent, TStaff} from "../types";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import styles from "../styles/Home.module.css";
+import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
+
+const Events = () => {
+
+    const [matches860, set860] = useState(true);
+    const [matches600, set600] = useState(true);
+
+    const { width } = useViewportSize();
+
+    useEffect(() => {
+        set860(window.matchMedia('(min-width: 800px)').matches);
+        set600(window.matchMedia('(min-width: 600px)').matches);
+    }, [width])
+
+
+    const [eventList, setEvents] = useListState<TEvent>([]);
+
+    useEffect(() => {
+        axios.get(process.env.WEBSITE_URL+"/api/event")
+            .then(value => {
+                setEvents.setState(value.data);
+                console.log(eventList);
+            })
+    }, []);
+
+    return (
+        <>
+            <Text className={styles.Title} variant={"gradient"} gradient={{from: 'teal', to: 'cyan', deg: 180}} weight={400} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>Upcoming Events</Text>
+            <div className={styles.eventContainer}>
+            {eventList.map(event => {
+                return (
+                    <div className={styles.eventCard} key={event._id}>
+                        <Card shadow="sm" p="lg" radius="md" withBorder>
+                            <Card.Section>
+                                <Image
+                                    src={event.imageURL}
+                                    height={160}
+                                    alt={event.title + " Image"}
+                                />
+                            </Card.Section>
+
+                            <Group position="apart" mt="md" mb="xs">
+                                <Text weight={500}>{event.title}</Text>
+                                <Badge color="green" variant="light">
+                                    Upcoming
+                                </Badge>
+                            </Group>
+
+                            <Text size="sm" color="dimmed">
+                                {event.brief}
+                            </Text>
+
+                            <Button component={"a"} href={"/event/" + event._id} variant="light" color="blue" fullWidth mt="md" radius="md">
+                                More Details
+                            </Button>
+                        </Card>
+                    </div>
+                )
+            })}
+            </div>
+        </>
+    )
+}
+
+export default Events;
