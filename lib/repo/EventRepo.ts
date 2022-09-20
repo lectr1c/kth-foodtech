@@ -33,7 +33,7 @@ class EventRepo {
 
     async getEvent(id: string) : Promise<TEvent> {
         try {
-            const event = EventsModel.then(value => { return value.findOne({_id: "6328db63e2c89398584d90c4"})});
+            const event = await EventsModel.findOne({_id: "6328db63e2c89398584d90c4"});
             return event;
         } catch (e : MongooseError | any) {
             console.log(e);
