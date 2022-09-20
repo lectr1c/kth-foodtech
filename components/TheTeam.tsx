@@ -1,8 +1,10 @@
 import { createStyles, Divider, Group, Text, Title, useMantineTheme, ActionIcon, Avatar, Autocomplete} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {useViewportSize} from "@mantine/hooks";
-import { BrandLinkedin, BrandTwitter } from 'tabler-icons-react';
-import Carpic from '../public/.pictures/car.jpg';
+import { BrandLinkedin, BrandTwitter, Car } from 'tabler-icons-react';
+
+import Pic from '../.pictures/car.jpeg'
+import BB from '../.pictures/whateva.jpg'
 
 
 const useStyles = createStyles((theme) => ({
@@ -59,7 +61,7 @@ const TheTeam = ({avatar, name, title}: TheTeam) => {
             }}>
       
                 <Group noWrap>
-                  <Avatar src='' alt='some name' size={94} radius="md"/>
+                  <Avatar src={BB} alt='some name' size={94} radius="md"/>
                   <div>
                     <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
                       Project Manager

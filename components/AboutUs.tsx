@@ -2,6 +2,7 @@ import {Box, Center, Container, Divider, Group, Text, Title, useMantineTheme} fr
 import {useEffect, useState} from "react";
 import {useViewportSize} from "@mantine/hooks";
 
+
 const AboutUs = () => {
 
     const [matches860, set860] = useState(true);

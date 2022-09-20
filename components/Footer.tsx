@@ -6,7 +6,6 @@ import logo from "../public/logo.svg";
 import darklogo from "../public/blacklogo.svg";
 import {useMantineTheme} from "@mantine/core";
 
-import Burger from '../.pictures/foodtech-burger-pic.jpeg'
 import {signIn, signOut, useSession} from "next-auth/react";
 
 const useStyles = createStyles((theme) => ({
@@ -61,7 +60,7 @@ export function Footer() {
               <BrandFacebook size={18}/>
             </a>
           </ActionIcon>
-          <ActionIcon component ='a' size="lg">
+          <ActionIcon size="lg">
             <a href='https://www.instagram.com/kthfoodtech/'>
               <BrandInstagram size={18}/>
             </a>
