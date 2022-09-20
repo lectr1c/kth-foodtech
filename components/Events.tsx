@@ -21,7 +21,7 @@ const Events = () => {
     const [eventList, setEvents] = useListState<TEvent>([]);
 
     useEffect(() => {
-        axios.get(process.env.WEBSITE_URL+"/api/event")
+        axios.get("/api/event")
             .then(value => {
                 setEvents.setState(value.data);
                 console.log(eventList);
