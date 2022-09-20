@@ -19,14 +19,14 @@ export default async function handler(
     const session = await getToken({req, secret});
 
     return new Promise(resolve => {
-        // if (req.method != "GET") {
-        //     const exists = staffRepo.emailExists(session?.email ? session.email : "**X**").then(value => {
-        //         if (!value) {
-        //             res.status(403).json({name: "Unauthorised"});
-        //             return resolve;
-        //         }
-        //     });
-        // }
+        if (req.method != "GET") {
+            const exists = staffRepo.emailExists(session?.email ? session.email : "**X**").then(value => {
+                if (!value) {
+                    res.status(403).json({name: "Unauthorised"});
+                    return resolve;
+                }
+            });
+        }
         if (req.method == "POST") {
             eventRepo.addEvent({
                 brief: req.body.brief,
