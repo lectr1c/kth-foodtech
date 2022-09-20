@@ -11,7 +11,7 @@ const Staff = () => {
     const [staffList, setStaff] = useListState<TStaff>([]);
 
     useEffect(() => {
-        axios.get("https://kthfoodtech.se/api/staff")
+        axios.get("https://kth-foodtech-lectr1c.vercel.app/api/staff")
             .then(value => {
                 setStaff.setState(value.data);
                 console.log(staffList);
