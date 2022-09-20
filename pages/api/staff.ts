@@ -43,8 +43,15 @@ export default async function handler(
       }
 
       if (req.method == "GET") {
-          if (req.body.id){
-
+          if (req.query.id){
+              staffRepo.getStaffByID(req.body.id)
+                  .then(value => {
+                      // @ts-ignore
+                      res.status(200).json(value);
+                  })
+                  .catch(err => {
+                      res.status(400).json(err);
+                  })
           } else {
               staffRepo.getStaff()
                   .then(value => {

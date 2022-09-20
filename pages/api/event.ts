@@ -19,43 +19,51 @@ export default async function handler(
     const session = await getToken({req, secret});
 
     return new Promise(resolve => {
-        if (req.method != "GET") {
-            const exists = staffRepo.emailExists(session?.email ? session.email : "**X**").then(value => {
-                if (!value) {
-                    res.status(403).json({name: "Unauthorised"});
-                    return resolve;
-                }
-            });
-        }
-        // if (req.method == "POST") {
-        //     staffRepo.addStaff({
-        //         name: req.body.name,
-        //         email: req.body.email,
-        //         pictureURL: req.body.pictureURL,
-        //         role: req.body.role
-        //     }).then(r => {
-        //         // @ts-ignore
-        //         res.status(200).json({...r._doc});
-        //     }).catch(err => {
-        //         res.status(400);
+        // if (req.method != "GET") {
+        //     const exists = staffRepo.emailExists(session?.email ? session.email : "**X**").then(value => {
+        //         if (!value) {
+        //             res.status(403).json({name: "Unauthorised"});
+        //             return resolve;
+        //         }
         //     });
         // }
-        //
-        // if (req.method == "GET") {
-        //     if (req.body.id){
-        //         console.log("hhh")
-        //
-        //     } else {
-        //         staffRepo.getStaff()
-        //             .then(value => {
-        //                 // @ts-ignore
-        //                 res.status(200).json(value);
-        //             })
-        //             .catch(err => {
-        //                 res.status(400).json(err);
-        //             })
-        //     }
-        // }
+        if (req.method == "POST") {
+            eventRepo.addEvent({
+                brief: req.body.brief,
+                datePosted: new Date(),
+                description: req.body.description,
+                imageURL: req.body.imageURL,
+                title: req.body.title
+            }).then(r => {
+                // @ts-ignore
+                res.status(200).json({...r._doc});
+            }).catch(err => {
+                res.status(400);
+            });
+        }
+
+        if (req.method == "GET") {
+            if (req.query.id){
+                // @ts-ignore
+                eventRepo.getEvent(req.query.id)
+                    .then(value => {
+                        // @ts-ignore
+                        res.status(200).json(value);
+                    })
+                    .catch(err => {
+                        res.status(400).json(err);
+                    })
+            } else {
+                eventRepo.getEvents()
+                    .then(value => {
+                        // @ts-ignore
+                        res.status(200).json(value);
+                    })
+                    .catch(err => {
+                        res.status(400).json(err);
+                    })
+            }
+        }
         return resolve;
     })
 }

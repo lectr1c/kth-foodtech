@@ -46,7 +46,11 @@ const Navigation: NextComponentType = () => {
                     </div>
                 </Group>
             </div>
-            <Drawer position={"top"} opened={opened} onClose={() => setOpened(false)}/>
+            <Drawer position={"top"} opened={opened} onClose={() => setOpened(false)}>
+                {buttons.map((value =>
+                        <Button key={value} size={"sm"} color={"dark"} variant={"subtle"}  style={{display: matches600 ? "inline-block" : "none", verticalAlign: "middle"}}>{value}</Button>
+                ))}
+            </Drawer>
         </div>
     )
 }

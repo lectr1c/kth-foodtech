@@ -11,7 +11,7 @@ const Staff = () => {
     const [staffList, setStaff] = useListState<TStaff>([]);
 
     useEffect(() => {
-        axios.get("https://kth-foodtech-lectr1c.vercel.app/api/staff")
+        axios.get("http://localhost:3000/api/staff")
             .then(value => {
                 setStaff.setState(value.data);
                 console.log(staffList);
@@ -33,12 +33,9 @@ const Staff = () => {
                             <Text size="lg" weight={500}>
                                 {staff.name}
                             </Text>
-
-                            <Group noWrap spacing={10} mt={3}>
-                                <ActionIcon size='lg'>
-                                    <BrandLinkedin size={18} />
-                                </ActionIcon>
-                            </Group>
+                            <Text size="sm" weight={300}>
+                                <a href={"mailto:" + staff.email}>Send Email</a>
+                            </Text>
                         </div>
                     </div>
                 )

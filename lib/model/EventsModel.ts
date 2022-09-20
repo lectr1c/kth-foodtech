@@ -1,6 +1,6 @@
 import mongoose, {Schema} from "mongoose"
 
-const conn = mongoose.createConnection("mongodb+srv://root:" + process.env.MONGO_PASS + "@kthfoodtech.tm3zvaf.mongodb.net/?retryWrites=true&w=majority");
+const conn = async () => await mongoose.createConnection("mongodb+srv://root:" + process.env.MONGO_PASS + "@kthfoodtech.tm3zvaf.mongodb.net/?retryWrites=true&w=majority");
 
 const Event = new mongoose.Schema({
     id: Number,
@@ -12,6 +12,6 @@ const Event = new mongoose.Schema({
     imageURL: String
 })
 
-const EventsModel = conn.models.Event || conn.model("Event", Event);
+const EventsModel = conn().then(value => { return value.models.Event } ) || conn().then(value => { return value.model("Event", Event)});
 
 export default EventsModel;

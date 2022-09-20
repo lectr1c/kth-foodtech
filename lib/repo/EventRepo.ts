@@ -21,7 +21,7 @@ class EventRepo {
 
     async getEvents() : Promise<TEvent[]> {
         try {
-            const events = await EventsModel.find({}, ["Title", "Brief", "Description", "DatePosted", "ImageLink"], {
+            const events = await EventsModel.find({}, ["title", "brief", "description", "datePosted", "imageURL"], {
                 sort: {
                     DatePosted: -1
                 }});
@@ -33,9 +33,10 @@ class EventRepo {
 
     async getEvent(id: string) : Promise<TEvent> {
         try {
-            const event = await EventsModel.findById(id);
+            const event = EventsModel.then(value => { return value.findOne({_id: "6328db63e2c89398584d90c4"})});
             return event;
         } catch (e : MongooseError | any) {
+            console.log(e);
             return e
         }
     }
