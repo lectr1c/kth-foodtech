@@ -58,7 +58,7 @@ const Hero : NextComponentType = (props) => {
                         marginLeft: matches800 ? 50 : 5, marginRight: matches800 ? 50 : 5,
                         display: matches800 ? "inherit" : "none"
                     }}>
-                        <ImageN className={styles.labImage} src={foodtechSVG} width={800}/>
+                        <ImageN className={styles.labImage} src={foodtechSVG}/>
                     </div>
                 </div>
             </Group>

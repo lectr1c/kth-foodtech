@@ -30,12 +30,11 @@ const Events = () => {
 
     return (
         <>
-            <Text className={styles.Title} variant={"gradient"} gradient={{from: 'teal', to: 'cyan', deg: 180}} weight={400} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>Upcoming Events</Text>
+            <Text className={styles.Title} color={"light"} weight={300} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>Upcoming Events</Text>
             <div className={styles.eventContainer}>
             {eventList.map(event => {
                 return (
-                    <div className={styles.eventCard} key={event._id}>
-                        <Card shadow="sm" p="lg" radius="md" withBorder>
+                        <Card className={styles.eventCard} key={event._id} shadow="sm" p="lg" radius="md" withBorder>
                             <Card.Section>
                                 <Image
                                     src={event.imageURL}
@@ -59,7 +58,6 @@ const Events = () => {
                                 More Details
                             </Button>
                         </Card>
-                    </div>
                 )
             })}
             </div>

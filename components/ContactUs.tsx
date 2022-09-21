@@ -16,6 +16,8 @@ import {
   ActionIcon,
 } from '@mantine/core';
 import { BrandTwitter, BrandYoutube, BrandInstagram } from 'tabler-icons-react';
+import {event} from "next/dist/build/output/log";
+import axios from "axios";
 
 const social = [BrandTwitter, BrandYoutube, BrandInstagram];
 
@@ -23,9 +25,23 @@ export function ContactUs() {
 
   const { width } = useViewportSize();
 
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+
 
   const theme = useMantineTheme();
   const scheme = theme.colorScheme;
+
+  function sendMessage() {
+    axios.post("/api/email", { from: email, name: name, message: message })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+  }
 
   return (
     <div className={styles.contactContainer} id={"contact"}>
@@ -40,12 +56,16 @@ export function ContactUs() {
           <TextInput
             label="Email"
             placeholder="your@email.com"
+            value={email}
+            onChange={(event) => setEmail(event.currentTarget.value) }
             required
           />
           <TextInput
             label="Name"
             placeholder="John Doe"
             mt="md"
+            value={name}
+            onChange={(event) => setName(event.currentTarget.value)}
           />
           <Textarea
             required
@@ -53,10 +73,12 @@ export function ContactUs() {
             placeholder="I would like to connect"
             minRows={4}
             mt="md"
+            value={message}
+            onChange={(event) => setMessage(event.currentTarget.value)}
           />
 
           <Group position="right" mt="md">
-            <Button>Send message</Button>
+            <Button onClick={() => sendMessage()}>Send message</Button>
           </Group>
         </div>
       </SimpleGrid>

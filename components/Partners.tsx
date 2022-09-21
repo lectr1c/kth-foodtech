@@ -19,7 +19,7 @@ const Partners = () => {
 
     return (
         <>
-            <Text className={styles.Title} variant={"gradient"} gradient={{from: 'teal', to: 'cyan', deg: 180}} weight={400} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>Past Partnerships</Text>
+            <Text className={styles.Title} color={"light"} weight={300} mb={-20} mt={20} style={{fontSize: matches600 ? "52px" : "32px"}}>PAST PARTNERSHIPS</Text>
             <div className={styles.partnersContainer}>
                 {partners.map(partner => {
                     return (
