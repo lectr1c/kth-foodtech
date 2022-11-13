@@ -11,10 +11,10 @@ type TEvent = {
 
 type TStaff = {
     _id?: number,
-    name: string,
-    email: string,
-    role: string,
-    pictureURL: string
+    name?: string,
+    email?: string,
+    role?: string,
+    pictureURL?: string
 }
 
 export type {

@@ -4,6 +4,7 @@ import { useState} from "react";
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import '../styles/globals.css';
 import { SessionProvider } from "next-auth/react"
+import { NotificationsProvider } from '@mantine/notifications';
 
 // @ts-ignore
 export default function App({ Component, pageProps: { session, ...pageProps }}) {
@@ -26,9 +27,11 @@ export default function App({ Component, pageProps: { session, ...pageProps }}) 
                 withGlobalStyles
                 withNormalizeCSS
                 theme={{ colorScheme }}>
-                <SessionProvider session={session}>
-                    <Component {...pageProps} />
-                </SessionProvider>
+                <NotificationsProvider>
+                    <SessionProvider session={session}>
+                        <Component {...pageProps} />
+                    </SessionProvider>
+                </NotificationsProvider>
             </MantineProvider>
             </ColorSchemeProvider>
         </>
