@@ -63,6 +63,12 @@ export default async function handler(
                   })
           }
       }
+
+      if (req.method == "DELETE") {
+          if (req.query.id) {
+              staffRepo.
+          }
+      }
     return resolve;
   })
 }

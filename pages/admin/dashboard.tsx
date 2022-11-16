@@ -2,6 +2,7 @@ import {useSession} from "next-auth/react";
 import Footer from "../../components/Footer";
 import Navigation from "../../components/Navigation";
 import DashboardC from "../../components/DashboardC";
+import Staff from "../../components/Staff";
 
 
 const Dashboard = () => {
@@ -14,12 +15,19 @@ const Dashboard = () => {
             <>
                 <Navigation/>
                 <DashboardC/>
+                <Staff deleteMode={false}/>
                 <Footer/>
             </>
         )
     }
 
-    return <>UnAuthorised</>
+    return (
+        <>
+            <Navigation/>
+            UNAUTHORIZED PLEASE LOG IN
+            <Footer/>
+        </>
+    )
 }
 
 export default Dashboard

@@ -1,12 +1,13 @@
-import { createStyles, Divider, Group, Text, Title, useMantineTheme, ActionIcon, Avatar, Autocomplete} from "@mantine/core";
+import { createStyles, Divider, Group, Text, Title, useMantineTheme, ActionIcon, Avatar, Autocomplete, Button} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {useListState, useViewportSize} from "@mantine/hooks";
 import { BrandLinkedin, BrandTwitter } from 'tabler-icons-react';
 import {TStaff} from "../types";
 import axios from "axios";
 import styles from "../styles/staff.module.css";
+import {showNotification} from "@mantine/notifications";
 
-const Staff = () => {
+const Staff = ({deleteMode} : { deleteMode : boolean }) => {
 
     const [staffList, setStaff] = useListState<TStaff>([]);
 
@@ -33,9 +34,7 @@ const Staff = () => {
                             <Text size="lg" weight={500}>
                                 {staff.name}
                             </Text>
-                            <Text size="sm" weight={300}>
-                                <a href={"mailto:" + staff.email}>Send Email</a>
-                            </Text>
+                            {deleteMode ? <Button onClick={() => deleteStaff(staff._id)}>Delete</Button> : <></>}
                         </div>
                     </div>
                 )
@@ -43,6 +42,30 @@ const Staff = () => {
 
         </div>
     )
+
+    function deleteStaff(_id: number | undefined) {
+        axios.delete("/api/staff", { data: {id: _id}})
+            .then((value: any) => {
+                showNotification(
+                    {
+                        title: "Deleted",
+                        color: "green",
+                        message: "Successfully deleted user"
+                    }
+                )
+            })
+            .catch((err) => {
+                showNotification(
+                    {
+                        title: "Error Deleting",
+                        color: "red",
+                        message: err.message
+                    }
+                )
+            })
+    }
 }
+
+
 
 export default Staff;

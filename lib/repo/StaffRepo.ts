@@ -28,8 +28,8 @@ class StaffRepo {
 
     async getStaffByID(id: string) : Promise<TStaff> {
         try {
-            const event = await StaffModel.findById(id);
-            return event;
+            const staff = await StaffModel.findById(id);
+            return staff;
         } catch (e : MongooseError | any) {
             return e
         }
@@ -41,6 +41,10 @@ class StaffRepo {
         } catch (e : MongooseError | any) {
             return e;
         }
+    }
+
+    async deleteStaff(id: string) {
+        return await StaffModel
     }
 }
 
