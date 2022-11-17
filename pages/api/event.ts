@@ -71,7 +71,8 @@ export default async function handler(
               if (Array.isArray(req.query.id)) {
                 eventRepo.deleteEvent(req.query.id[0])
                 .then(value => {
-                    res.status(200);
+                    // @ts-ignore
+                    res.status(200).json(value);
                 })
                 .catch(err => {
                     res.status(400).json(err);
