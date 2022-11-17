@@ -33,7 +33,7 @@ const Hero : NextComponentType = (props) => {
                             weight={700}
                             style={{ fontFamily: 'Greycliff CF, sans-serif', fontSize: matches600 ? '52px' : '1.7rem'}}
                         >
-                            We <span style={{fontWeight: 800, textDecoration: 'underline'}}>Innovate</span>
+                            <span style={{fontWeight: 800, textDecoration: 'underline'}}>Innovation</span> in
                         </Text>
                         <Text
                             align="left"
@@ -49,7 +49,7 @@ const Hero : NextComponentType = (props) => {
                             The Food Industry
                         </Text>
                     </div>
-                    <Text mx={10} size={18}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi commodo, sem at pharetra faucibus, nulla tortor convallis elit, vel ornare leo nunc eu risus.</Text>
+                    <Text mx={10} size={18}>Our mission is to connect KTH students to the amazing and fast paced world of Foodtech as well as inspire them to make greener food.</Text>
                     <Button component={"a"} href={"#contact"} size={"md"} radius={"sm"} variant={"outline"} color={'green'} m={15} ml={7}>Contact Us</Button>
                     <Button component={"a"} href={"/events"} radius={"sm"} variant={"filled"} color={'green'} m={15} ml={7}>Our Partnerships</Button>
                 </div>

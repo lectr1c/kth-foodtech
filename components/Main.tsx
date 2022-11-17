@@ -20,10 +20,6 @@ const Main: NextComponentType = (props?: Object) => {
             <Divider color={"cyan"} size={16}/>
             <Divider color={"teal"} size={13}/>
             <Divider color={"green"} size={10}/>
-            <Partners/>
-            <Divider color={"green"} size={10}/>
-            <Divider color={"teal"} size={13}/>
-            <Divider color={"cyan"} size={16}/>
             <AboutUs/>
             <Staff deleteMode={false}/>
             <WavesSpacer/>

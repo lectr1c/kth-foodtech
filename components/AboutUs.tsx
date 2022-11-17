@@ -30,13 +30,12 @@ const AboutUs = () => {
             <Group position={"center"} style={{ top: matches600 ? '110px' : '70px', margin: "auto", position: "relative", width: matches860 ? '70vw' : '90vw'}}>
                 <Text color={"light"} weight={300} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>About Us</Text>
                 <div>
-                    <Text weight={400} mb={0} align={"center"}>Our mission is to connect KTH students to the amazing and fast paced world of Foodtech as well as inspire them to make greener food choices</Text>
                     <Divider color={"dark"} size={"sm"} my={20} mx={100}/>
-                    <Text weight={300} align={matches600 ? "center" : "left"} sx={{paddingBottom: '7vw'}}>Make Foodtech mainstream by educating the students of KTH how Foodtech could be the main driver to save the planet as well as show how exciting food technology is
-
-                        Inspire students to be part of this incredibly fast growing and vibrant industry and match their talents with awesome Foodtech companies
-
-                        Showcase how many different amazing plant-based food options we have today by letting the students get first-hand experience in order to make it easier to make greener food choices.
+                    <Text weight={300} align={matches600 ? "center" : "left"} sx={{paddingBottom: '7vw'}}>
+                    This is a student- led THS organization that aims to benefit both fellow peers and the industry as a whole.
+                     By educating the student population in why Foodtech is relevant and hosting events to connect companies with the future of the industry,
+                      we hope to facilitate new opportunities and innovation. Our goal is simple: welcome students into the exciting world 
+                      of Foodtech and match their talents with the companies that lead it. Contact us today to know more!
                     </Text>
                 </div>
             </Group>

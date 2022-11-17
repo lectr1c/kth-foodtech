@@ -65,6 +65,13 @@ export default async function handler(
                     })
             }
         }
+
+        if (req.method == "DELETE") {
+            if (req.query.id) {
+              if (Array.isArray(req.query.id)) eventRepo.deleteEvent(req.query.id[0]);
+              else eventRepo.deleteEvent(req.query.id);
+            }
+        }
         return resolve;
     })
 }

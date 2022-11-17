@@ -40,6 +40,15 @@ class EventRepo {
             return e
         }
     }
+
+    async deleteEvent(id: string) : Promise<boolean>{
+        try {
+            const deleted = await EventsModel.findByIdAndDelete(id);
+            return deleted;
+        } catch (e : MongooseError | any) {
+            return e;
+        }
+    }
 }
 
 export default EventRepo

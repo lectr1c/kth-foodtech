@@ -1,6 +1,7 @@
 import StaffModel from "../model/StaffModel";
 import {MongooseError} from "mongoose";
 import {TStaff} from '../../types';
+import { ST } from "next/dist/shared/lib/utils";
 
 class StaffRepo {
 
@@ -43,8 +44,13 @@ class StaffRepo {
         }
     }
 
-    async deleteStaff(id: string) {
-        return await StaffModel
+    async deleteStaff(id: string) : Promise<boolean> {
+        try {
+            const deleted = await StaffModel.findByIdAndDelete(id);
+            return true;
+        } catch (e : MongooseError | any) {
+            return false;
+        }
     }
 }
 

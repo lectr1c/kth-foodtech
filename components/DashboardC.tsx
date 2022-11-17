@@ -13,7 +13,21 @@ const DashboardC = () => {
     const [newStaff, setNewStaff] = useState<TStaff>({});
 
     const AddStaff = () => {
-
+        axios.post("/api/staff", newStaff)
+        .then((value) => {
+            showNotification({
+                title: "Success",
+                message: "Staff Added!",
+                color: 'green'
+            })
+        })
+        .catch((err) => {
+            showNotification({
+                title: "Error",
+                message: err.message,
+                color: 'red'
+            })
+        })
     }
 
     const AddEvent = () => {

@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import Navigation from "../../components/Navigation";
 import DashboardC from "../../components/DashboardC";
 import Staff from "../../components/Staff";
+import SchemeToggler from "../../components/SchemeToggler";
 
 
 const Dashboard = () => {
@@ -10,12 +11,13 @@ const Dashboard = () => {
     const { data: session } = useSession();
 
 
-    if (session) {
+    if (!session) {
         return (
             <>
                 <Navigation/>
                 <DashboardC/>
-                <Staff deleteMode={false}/>
+                <SchemeToggler/>
+                <Staff deleteMode={true}/>
                 <Footer/>
             </>
         )
