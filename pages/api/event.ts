@@ -77,7 +77,15 @@ export default async function handler(
                     res.status(400).json(err);
                 });
               } 
-              else eventRepo.deleteEvent(req.query.id);
+              else {
+                eventRepo.deleteEvent(req.query.id)
+                .then(value => {
+                    res.status(200);
+                })
+                .catch(err => {
+                    res.status(400).json(err);
+                });
+              }
             }
         }
         return resolve;
