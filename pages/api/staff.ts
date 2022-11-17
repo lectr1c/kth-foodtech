@@ -19,14 +19,15 @@ export default async function handler(
   const session = await getToken({req, secret});
 
   return new Promise(resolve => {
-    if (req.method != "GET") {
-        const exists = staffRepo.emailExists(session?.email ? session.email : "**X**").then(value => {
-            if (!value) {
-                res.status(403).json({name: "Unauthorised"});
-                return resolve;
-            }
-        });
-    }
+    // if (req.method != "GET") {
+    //     const exists = staffRepo.emailExists(session?.email ? session.email : "**X**").then(value => {
+    //         if (!value) {
+    //             res.status(403).json({name: "Unauthorised"});
+    //             return resolve;
+    //         }
+    //     });
+    // }
+
 
       if (req.method == "POST") {
           staffRepo.addStaff({
@@ -65,17 +66,18 @@ export default async function handler(
       }
 
       if (req.method == "DELETE") {
-          if (req.query.id) {
-            console.log("is array  " + Array.isArray(req.query.id));
-            if (Array.isArray(req.query.id)) {
-                staffRepo.deleteStaff(req.query.id[0])
-            } else {
-                staffRepo.deleteStaff(req.query.id);
-            }
-            res.status(200);
-          } else {
-            res.status(400);
-          }
+        if (req.body.id) {
+            staffRepo.deleteStaff(req.body.id)
+            .then(value => {
+                // @ts-ignore
+                res.status(200).json(value);
+            })
+            .catch(err => {
+                res.status(400).json(err);
+            });
+        } else {
+            res.status(404);
+        }
       }
     return resolve;
   })

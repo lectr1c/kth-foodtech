@@ -67,9 +67,8 @@ export default async function handler(
         }
 
         if (req.method == "DELETE") {
-            if (req.query.id) {
-              if (Array.isArray(req.query.id)) {
-                eventRepo.deleteEvent(req.query.id[0])
+            if (req.body.id) {
+                eventRepo.deleteEvent(req.body.id)
                 .then(value => {
                     // @ts-ignore
                     res.status(200).json(value);
@@ -77,16 +76,8 @@ export default async function handler(
                 .catch(err => {
                     res.status(400).json(err);
                 });
-              } 
-              else {
-                eventRepo.deleteEvent(req.query.id)
-                .then(value => {
-                    res.status(200);
-                })
-                .catch(err => {
-                    res.status(400).json(err);
-                });
-              }
+            } else {
+                res.status(404);
             }
         }
         return resolve;
