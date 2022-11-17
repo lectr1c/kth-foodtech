@@ -44,13 +44,15 @@ class StaffRepo {
         }
     }
 
-    async deleteStaff(id: string) : Promise<boolean> {
-        try {
-            const deleted = await StaffModel.findByIdAndDelete(id);
-            return true;
-        } catch (e : MongooseError | any) {
-            return false;
-        }
+    async deleteStaff(id: string) {
+        const deleted = await StaffModel.findByIdAndRemove(id,
+            function (err: any, docs: any) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("Removed User:", docs)
+                }
+            });
     }
 }
 

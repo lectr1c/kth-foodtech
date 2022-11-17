@@ -66,6 +66,7 @@ export default async function handler(
 
       if (req.method == "DELETE") {
           if (req.query.id) {
+            console.log("is array  " + Array.isArray(req.query.id));
             if (Array.isArray(req.query.id)) staffRepo.deleteStaff(req.query.id[0]);
             else staffRepo.deleteStaff(req.query.id);
           }
