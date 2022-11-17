@@ -11,7 +11,7 @@ const Dashboard = () => {
     const { data: session } = useSession();
 
 
-    if (!session) {
+    if (session) {
         return (
             <>
                 <Navigation/>
