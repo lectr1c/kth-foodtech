@@ -68,7 +68,15 @@ export default async function handler(
 
         if (req.method == "DELETE") {
             if (req.query.id) {
-              if (Array.isArray(req.query.id)) eventRepo.deleteEvent(req.query.id[0]);
+              if (Array.isArray(req.query.id)) {
+                eventRepo.deleteEvent(req.query.id[0])
+                .then(value => {
+                    res.status(200);
+                })
+                .catch(err => {
+                    res.status(400).json(err);
+                });
+              } 
               else eventRepo.deleteEvent(req.query.id);
             }
         }
