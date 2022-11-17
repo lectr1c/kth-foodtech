@@ -44,6 +44,7 @@ const Staff = ({deleteMode} : { deleteMode : boolean }) => {
     )
 
     function deleteStaff(_id: number | undefined) {
+        console.log(_id);
         axios.delete("/api/staff", { data: {id: _id}})
             .then((value: any) => {
                 showNotification(
