@@ -15,12 +15,10 @@ const Dashboard = () => {
     const [auth, setAuth] = useState<Boolean>(false);
 
     useEffect(() => {
-        console.log("YOOO111");
         axios.get("/api/authorise").then(res => {
             if (res.status === 200) {
                 setAuth(true);
             }
-        console.log("YOOO");
         }).catch(err => {
             console.log(err);
         })

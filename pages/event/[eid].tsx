@@ -35,6 +35,16 @@ const EventPage = () => {
                     }
           }, [eid]);
 
+          const [auth, setAuth] = useState<Boolean>(false);
+
+          useEffect(() => {
+                    axios.get("/api/authorise").then(res => {
+                              if (res.status === 200) { setAuth(true); }
+                    }).catch(err => {
+                              console.log(err);
+                    })
+          }, [])
+
           return (
           <>
           <Navigation/>
@@ -52,7 +62,7 @@ const EventPage = () => {
                               <div className={styles.Date}>
                               <Title size={20} mr={30}>Event Date</Title>
                               <Text color={"lime"}>{dayjs(event.eventDate).format('YYYY-MM-DD HH:mm')}</Text>
-                              {session ? <Button ml={10} color={"red"} onClick={() => { deleteEvent(event._id) }}>Delete Event</Button> : <></>}
+                              {session && auth ? <Button ml={10} color={"red"} onClick={() => { deleteEvent(event._id) }}>Delete Event</Button> : <></>}
                               </div>
                     </div>
                     <div className={styles.MainContainer}>
