@@ -1,0 +1,23 @@
+.Image {
+          height: 30vh;
+          width: 100vw;
+          object-fit: cover;
+}
+
+.Date {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-right: 50px;
+}
+
+.HeaderContainer {
+          display: flex;
+          justify-content: space-between;
+}
+
+.MainContainer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+}

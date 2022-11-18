@@ -51,7 +51,7 @@ const Hero : NextComponentType = (props) => {
                     </div>
                     <Text mx={10} size={18}>Our mission is to connect KTH students to the amazing and fast paced world of Foodtech as well as inspire them to make greener food.</Text>
                     <Button component={"a"} href={"#contact"} size={"md"} radius={"sm"} variant={"outline"} color={'green'} m={15} ml={7}>Contact Us</Button>
-                    <Button component={"a"} href={"/events"} radius={"sm"} variant={"filled"} color={'green'} m={15} ml={7}>Our Partnerships</Button>
+                    <Button component={"a"} href={"#events"} radius={"sm"} variant={"filled"} color={'green'} m={15} ml={7}>Our Events</Button>
                 </div>
                 <div>
                     <div style={{

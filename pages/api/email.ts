@@ -1,26 +1,23 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import EventRepo from "../../lib/repo/EventRepo";
 import {getToken} from "next-auth/jwt";
-import StaffRepo from "../../lib/repo/StaffRepo";
-import { SMTPClient, MessageHeaders} from 'emailjs';
+import EmailRepo from "../../lib/repo/EmailRepo";
 
 type Data = {
-    name: string
+    message: string
 }
 
 const secret = process.env.SECRET;
-const eventRepo = new EventRepo();
-const staffRepo = new StaffRepo();
+const emailrepo = new EmailRepo();
 
-const client = new SMTPClient({
-    user: '',
-    password: '',
-    ssl: true,
-    host: 'send.one.com'
-})
+// const client = new SMTPClient({
+//     user: 'kthfoodtech@gmail.com',
+//     password: 'Team22/23!',
+//     ssl: true,
+//     host: 'mailout.one.com'
+// })
 
-//one.com webmail email password
+// //one.com webmail email password
 
 
 
@@ -32,18 +29,19 @@ export default async function handler(
 
     return new Promise(resolve => {
         if (req.method == "POST") {
-
-            const message : MessageHeaders = {
-                from: `${req.body.name} <` + req.body.email + `>`,
-                to: 'KTH FoodTech <contact@kthfoodtech.se>',
-                subject: req.body.name,
-                text: req.body.message
-            }
-
-            client.send(message,
-                (err, message) => {
-                console.log(err || message);
-                })
+            emailrepo.addEmail(
+                {
+                    name: req.body.name,
+                    email: req.body.email,
+                    message: req.body.message
+                }
+            )
+            .then(value => {
+                res.status(200).json({message: "Added"});
+            })
+            .catch(err => {
+                res.status(400).json({message: err});
+            })
         }
         return resolve;
     })

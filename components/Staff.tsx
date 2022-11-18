@@ -6,10 +6,12 @@ import {TStaff} from "../types";
 import axios from "axios";
 import styles from "../styles/staff.module.css";
 import {showNotification} from "@mantine/notifications";
+import { useRouter } from "next/router";
 
 const Staff = ({deleteMode} : { deleteMode : boolean }) => {
 
     const [staffList, setStaff] = useListState<TStaff>([]);
+    const router = useRouter()
 
     useEffect(() => {
         axios.get("/api/staff")
@@ -34,7 +36,8 @@ const Staff = ({deleteMode} : { deleteMode : boolean }) => {
                             <Text size="lg" weight={500}>
                                 {staff.name}
                             </Text>
-                            {deleteMode ? <Button onClick={() => deleteStaff(staff._id)}>Delete</Button> : <></>}
+                            {deleteMode ? <Button mt="md" color={"red"} onClick={() => deleteStaff(staff._id)}>Delete</Button> : 
+                            <></>}
                         </div>
                     </div>
                 )
@@ -54,6 +57,7 @@ const Staff = ({deleteMode} : { deleteMode : boolean }) => {
                         message: "Successfully deleted user"
                     }
                 )
+                router.reload();
             })
             .catch((err) => {
                 showNotification(

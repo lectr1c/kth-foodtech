@@ -28,11 +28,11 @@ export default async function handler(
             });
         }
         if (req.method == "POST") {
-            console.log("hi   " + req.body)
             eventRepo.addEvent({
                 brief: req.body.brief,
                 datePosted: new Date(),
                 description: req.body.description,
+                eventDate: req.body.eventDate,
                 imageURL: req.body.imageURL,
                 title: req.body.title
             }).then(r => {

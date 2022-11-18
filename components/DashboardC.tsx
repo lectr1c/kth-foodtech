@@ -6,11 +6,26 @@ import {useEffect, useState} from "react";
 import {TEvent, TStaff} from "../types";
 import axios from "axios";
 import {showNotification} from "@mantine/notifications";
+import { DatePicker, TimeInput } from "@mantine/dates";
+import dayjs from "dayjs";
+import { useRouter } from "next/router";
 
 const DashboardC = () => {
 
     const [newEvent, setNewEvent] = useState<TEvent>({});
     const [newStaff, setNewStaff] = useState<TStaff>({});
+
+    const router = useRouter();
+    const [time, setTime] = useState(new Date());
+    const [date, setDate] = useState<Date>(new Date());
+
+    useEffect(() => { 
+        const combinedDate : Date = combineTimeAndDate(time, date) || new Date();
+        setNewEvent(event => ({
+            ...event,
+            eventDate: combinedDate
+        }))
+    }, [time, date]);
 
     const AddStaff = () => {
         axios.post("/api/staff", newStaff)
@@ -20,6 +35,7 @@ const DashboardC = () => {
                 message: "Staff Added!",
                 color: 'green'
             })
+            router.reload();
         })
         .catch((err) => {
             showNotification({
@@ -31,7 +47,6 @@ const DashboardC = () => {
     }
 
     const AddEvent = () => {
-        console.log("yoo")
         axios.post("/api/event", newEvent)
             .then((value) => {
                 showNotification({
@@ -56,9 +71,11 @@ const DashboardC = () => {
                     <Title>Add Event</Title>
                     <TextInput mt={30} label={"Title"} placeholder={"Title"} value={newEvent.title} onChange={(event) => setTitle(event.currentTarget.value)}/>
                     <TextInput mt={30} label={"Brief"} placeholder={"Brief"} value={newEvent.brief} onChange={(event) => setBrief(event.currentTarget.value)}/>
+                    <DatePicker mt={30} label="Event Date" placeholder="Date" value={date} onChange={(event) => { setDate(event ? event : new Date()) }}/>
+                    <TimeInput mt={20} label="Time" timePlaceholder="17" value={time} onChange={(event) => { setTime(event ? event : new Date())}}/>
                     <Textarea mt={30} label={"Description"} placeholder={"Description"} value={newEvent.description} onChange={(event) => setDescription(event.currentTarget.value)}/>
                     <TextInput mt={30} label={"Image"} placeholder={"Image URL"} value={newEvent.imageURL} onChange={(event) => setImage(event.currentTarget.value)}/>
-                    <Button size={"md"} mt={30} onClick={() => {AddEvent()}}>Add Event</Button>
+                    <Button size={"md"} mt={30} onClick={() => { AddEvent() }}>Add Event</Button>
                 </div>
                 <Divider/>
                 <div className={styles.eventAdd}>
@@ -73,6 +90,16 @@ const DashboardC = () => {
         </>
     )
 
+    function combineTimeAndDate(time: Date, date: Date) {
+        if (!(date instanceof Date)) return undefined;
+        if (!(time instanceof Date)) return date;
+
+        const hour = dayjs(time).hour();
+        const minute = dayjs(time).minute();
+        const dateAndTime = dayjs(date).hour(hour).minute(minute);
+
+        return dateAndTime.toDate();
+    }
 
     function setName(value: string) {
         setNewStaff(event => ({

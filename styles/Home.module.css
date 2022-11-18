@@ -49,3 +49,7 @@
     flex-direction: column;
   }
 }
+
+.Logo {
+  cursor: pointer;
+}

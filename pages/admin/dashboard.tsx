@@ -4,32 +4,48 @@ import Navigation from "../../components/Navigation";
 import DashboardC from "../../components/DashboardC";
 import Staff from "../../components/Staff";
 import SchemeToggler from "../../components/SchemeToggler";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 const Dashboard = () => {
 
     const { data: session } = useSession();
 
+    const [auth, setAuth] = useState<Boolean>(false);
 
-    if (session) {
+    useEffect(() => {
+        console.log("YOOO111");
+        axios.get("/api/authorise").then(res => {
+            if (res.status === 200) {
+                setAuth(true);
+            }
+        console.log("YOOO");
+        }).catch(err => {
+            console.log(err);
+        })
+    }, [])
+    
+
+
+    if (session && auth) {
         return (
             <>
                 <Navigation/>
                 <DashboardC/>
-                <SchemeToggler/>
                 <Staff deleteMode={true}/>
                 <Footer/>
             </>
         )
+    } else {
+        return (
+            <>
+                <Navigation/>
+                UNAUTHORIZED PLEASE LOG IN
+                <Footer/>
+            </>
+        )
     }
-
-    return (
-        <>
-            <Navigation/>
-            UNAUTHORIZED PLEASE LOG IN
-            <Footer/>
-        </>
-    )
 }
 
 export default Dashboard

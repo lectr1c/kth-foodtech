@@ -5,7 +5,7 @@ const conn = mongoose.createConnection("mongodb+srv://root:" + process.env.MONGO
 const Event = new mongoose.Schema({
     id: Number,
     datePosted: Date,
-    dateUpdated: Date,
+    eventDate: Date,
     title: String,
     brief: String,
     description: String,

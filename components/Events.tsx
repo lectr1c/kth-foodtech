@@ -29,7 +29,7 @@ const Events = () => {
     }, []);
 
     return (
-        <>
+        <div id="events">
             <Text className={styles.Title} color={"light"} weight={300} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>Upcoming Events</Text>
             <div className={styles.eventContainer}>
             {eventList.map(event => {
@@ -61,7 +61,7 @@ const Events = () => {
                 )
             })}
             </div>
-        </>
+        </div>
     )
 }
 

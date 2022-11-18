@@ -12,6 +12,7 @@ class EventRepo {
                 brief: event.brief,
                 description: event.description,
                 imageURL: event.imageURL,
+                eventDate: event.eventDate,
                 datePosted: new Date()
             })
         } catch (e : MongooseError | any) {
@@ -33,7 +34,7 @@ class EventRepo {
 
     async getEvent(id: string) : Promise<TEvent> {
         try {
-            const event = await EventsModel.findOne({_id: "6328db63e2c89398584d90c4"});
+            const event = await EventsModel.findOne({_id: id});
             return event;
         } catch (e : MongooseError | any) {
             console.log(e);

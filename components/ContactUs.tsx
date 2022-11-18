@@ -18,6 +18,7 @@ import {
 import { BrandTwitter, BrandYoutube, BrandInstagram } from 'tabler-icons-react';
 import {event} from "next/dist/build/output/log";
 import axios from "axios";
+import { showNotification } from '@mantine/notifications';
 
 const social = [BrandTwitter, BrandYoutube, BrandInstagram];
 
@@ -34,12 +35,20 @@ export function ContactUs() {
   const scheme = theme.colorScheme;
 
   function sendMessage() {
-    axios.post("/api/email", { from: email, name: name, message: message })
+    axios.post("/api/email", { email: email, name: name, message: message })
         .then(res => {
-          console.log(res);
+          showNotification({
+            title: "Sent email!",
+            message: "Your message has been sent! We will get back to you shortly!",
+            color: "green"
+          })
         })
         .catch(err => {
-          console.log(err);
+          showNotification({
+            title: "Error",
+            message: "Your email couldn't be sent!",
+            color: "red"
+          })
         })
   }
 

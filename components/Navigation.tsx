@@ -1,4 +1,4 @@
-import {NextComponentType} from "next";
+import next, {NextComponentType} from "next";
 import {Button, Grid, MantineTheme, Drawer, Burger} from "@mantine/core";
 import logo from "../public/logo.svg";
 import darklogo from "../public/blacklogo.svg";
@@ -6,11 +6,13 @@ import Image from "next/image";
 import {Group, useMantineTheme, MantineProvider, ColorScheme} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {useViewportSize} from "@mantine/hooks";
-
+import { useRouter } from 'next/router'
+import styles from '../styles/Home.module.css'
 
 const Navigation: NextComponentType = () => {
 
     const theme = useMantineTheme();
+    const router = useRouter();
 
     const [matches600, set600] = useState(true);
     const { width } = useViewportSize();
@@ -28,11 +30,13 @@ const Navigation: NextComponentType = () => {
                 <Group align={"center"} position={"apart"} sx={{height: '100%', justifyContent:"space-between"}} px={'10vw'} noWrap>
                     <a style={{display: "inline-block", verticalAlign: "middle", maxHeight: '60px', maxWidth: '180px', minWidth: '100px', position: "relative", marginTop: '5px'}}>
                         <Image
-                           src={theme.colorScheme == 'dark' ? logo : darklogo }
-                           alt="KTH Foodtech logo"
+                        src={theme.colorScheme == 'dark' ? logo : darklogo }
+                        alt="KTH Foodtech logo"
+                        onClick={() => { router.push("/")}}
+                        className={styles.Logo}
                         />
                     </a>
-                    <div>
+                    {/* <div>
                     {buttons.map((value =>
                             <Button key={value} size={"sm"} color={"dark"} variant={"subtle"}  style={{display: matches600 ? "inline-block" : "none", verticalAlign: "middle"}}>{value}</Button>
                     ))}
@@ -43,16 +47,16 @@ const Navigation: NextComponentType = () => {
                             opened={opened}
                             onClick={() => setOpened((o) => !o)}
                             title={title}/>
-                    </div>
+                    </div> */}
                 </Group>
             </div>
-            <Drawer position={"top"} opened={opened} onClose={() => setOpened(false)}>
+            {/* <Drawer position={"top"} opened={opened} onClose={() => setOpened(false)}>
                 {buttons.map((value =>
                         <div key={value}>
                             <a href={"/"+value.toLowerCase()}>{value}</a>
                         </div>
                 ))}
-            </Drawer>
+            </Drawer> */}
         </div>
     )
 }
