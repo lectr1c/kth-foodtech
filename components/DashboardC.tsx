@@ -75,6 +75,7 @@ const DashboardC = () => {
                     <TimeInput mt={20} label="Time" timePlaceholder="17" value={time} onChange={(event) => { setTime(event ? event : new Date())}}/>
                     <Textarea mt={30} label={"Description"} placeholder={"Description"} value={newEvent.description} onChange={(event) => setDescription(event.currentTarget.value)}/>
                     <TextInput mt={30} label={"Image"} placeholder={"Image URL"} value={newEvent.imageURL} onChange={(event) => setImage(event.currentTarget.value)}/>
+                    <TextInput mt={30} label={"Link"} placeholder={"Link"} value={newEvent.link} onChange={(event) => setLink(event.currentTarget.value)}/>
                     <Button size={"md"} mt={30} onClick={() => { AddEvent() }}>Add Event</Button>
                 </div>
                 <Divider/>
@@ -126,6 +127,13 @@ const DashboardC = () => {
         setNewStaff(event => ({
             ...event,
             pictureURL: value
+        }))
+    }
+
+    function setLink(value: string) {
+        setNewStaff(event => ({
+            ...event,
+            link: value
         }))
     }
 

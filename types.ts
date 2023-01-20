@@ -7,6 +7,7 @@ type TEvent = {
     brief?: string,
     description?: string,
     imageURL?: string
+    link?: string
 }
 
 type TStaff = {

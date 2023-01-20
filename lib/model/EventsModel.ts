@@ -9,7 +9,8 @@ const Event = new mongoose.Schema({
     title: String,
     brief: String,
     description: String,
-    imageURL: String
+    imageURL: String,
+    link: String
 })
 
 const EventsModel = conn.models.Event || conn.model("Event", Event);

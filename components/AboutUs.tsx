@@ -1,4 +1,4 @@
-import {Box, Center, Container, Divider, Group, Text, Title, useMantineTheme} from "@mantine/core";
+import {Box, Center, Container, Divider, Group, Text, Anchor, TextInput, Title, useMantineTheme} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {useViewportSize} from "@mantine/hooks";
 

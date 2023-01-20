@@ -13,7 +13,8 @@ class EventRepo {
                 description: event.description,
                 imageURL: event.imageURL,
                 eventDate: event.eventDate,
-                datePosted: new Date()
+                datePosted: new Date(),
+                link: event.link
             })
         } catch (e : MongooseError | any) {
             return e;
@@ -22,7 +23,7 @@ class EventRepo {
 
     async getEvents() : Promise<TEvent[]> {
         try {
-            const events = await EventsModel.find({}, ["title", "brief", "description", "datePosted", "imageURL"], {
+            const events = await EventsModel.find({}, ["title", "brief", "description", "datePosted", "imageURL", "link"], {
                 sort: {
                     DatePosted: -1
                 }});
