@@ -70,7 +70,7 @@ const EventPage = () => {
                               <Text m={50}>{event.description}</Text>
                     </div> 
                     <div className={styles.ButtonContainer}>
-                    <Button component={"a"} href={event.link} variant="light" color="teal" radius="md">
+                    <Button component={"a"} href={event.link} variant="light" color="green" radius="md">
                                 Sign up
                             </Button>
                     </div>

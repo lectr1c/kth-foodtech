@@ -13,8 +13,8 @@ class EventRepo {
                 description: event.description,
                 imageURL: event.imageURL,
                 eventDate: event.eventDate,
-                datePosted: new Date(),
-                link: event.link
+                link: event.link,
+                datePosted: new Date()
             })
         } catch (e : MongooseError | any) {
             return e;
