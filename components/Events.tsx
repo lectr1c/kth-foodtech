@@ -11,6 +11,7 @@ const Events = () => {
     const [matches600, set600] = useState(true);
 
     const { width } = useViewportSize();
+    const date = new Date();
 
     useEffect(() => {
         set860(window.matchMedia('(min-width: 800px)').matches);
@@ -45,8 +46,8 @@ const Events = () => {
 
                             <Group position="apart" mt="md" mb="xs">
                                 <Text weight={500}>{event.title}</Text>
-                                <Badge color="green" variant="light">
-                                    Upcoming
+                                <Badge>
+                                {event.Date == date.getDate()? <Badge color="green" variant="light">Upcoming</Badge>: <Badge color="red" variant="light"> Previous </Badge>}
                                 </Badge>
                             </Group>
 
