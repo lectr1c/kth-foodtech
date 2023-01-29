@@ -46,9 +46,9 @@ const Events = () => {
 
                             <Group position="apart" mt="md" mb="xs">
                                 <Text weight={500}>{event.title}</Text>
-                                <Badge>
+                                
                                 {event.Date == date.getDate()? <Badge color="green" variant="light">Upcoming</Badge>: <Badge color="red" variant="light"> Previous </Badge>}
-                                </Badge>
+                                
                             </Group>
 
                             <Text size="sm" color="dimmed">
