@@ -158,7 +158,7 @@ const DashboardC = () => {
         }))
     }
     function setLink(value: string) {
-        setNewStaff(event => ({
+        setNewEvent(event => ({
             ...event,
             link: value
         }))
