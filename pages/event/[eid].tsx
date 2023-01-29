@@ -69,6 +69,11 @@ const EventPage = () => {
                               <Text m={10} weight={600} size={17} color={'teal'}>{event.brief}</Text>
                               <Text m={50}>{event.description}</Text>
                     </div> 
+                    <div className={styles.ButtonContainer}>
+                    <Button component={"a"} href={event.link} variant="light" color="teal" radius="md">
+                                Sign up
+                            </Button>
+                    </div>
           </div>
           <Footer/>
           </>

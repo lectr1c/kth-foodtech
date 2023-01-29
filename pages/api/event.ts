@@ -34,7 +34,8 @@ export default async function handler(
                 description: req.body.description,
                 eventDate: req.body.eventDate,
                 imageURL: req.body.imageURL,
-                title: req.body.title
+                title: req.body.title,
+                link: req.body.link
             }).then(r => {
                 // @ts-ignore
                 res.status(200).json({...r._doc});
