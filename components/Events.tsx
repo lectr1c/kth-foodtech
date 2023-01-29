@@ -1,6 +1,6 @@
 import {useListState, useViewportSize} from "@mantine/hooks";
 import {TEvent, TStaff} from "../types";
-import {useEffect, useState} from "react";
+import {Key, useEffect, useState} from "react";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
 import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
@@ -35,7 +35,7 @@ const Events = () => {
         <div id="events">
             <Text className={styles.Title} color={"light"} weight={300} mb={-20} style={{fontSize: matches600 ? "52px" : "32px"}}>Upcoming Events</Text>
             <div className={styles.eventContainer}>
-            {eventList.map(event => {
+            {eventList.map((event: { _id: Key | null | undefined; imageURL: any; title: string; eventDate: any; brief: any; }) => {
                 return (
                         <Card className={styles.eventCard} key={event._id} shadow="sm" p="lg" radius="md" withBorder>
                             <Card.Section>
