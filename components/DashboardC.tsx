@@ -164,12 +164,6 @@ const DashboardC = () => {
             imageURL: value
         }))
     }
-    function setLink(value: string) {
-        setNewEvent(event => ({
-            ...event,
-            link: value
-        }))
-    }
 }
 
 export default DashboardC
