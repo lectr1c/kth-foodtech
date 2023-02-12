@@ -85,6 +85,7 @@ const DashboardC = () => {
                     <TextInput mt={30} label={"Email"} placeholder={"Email"} value={newStaff.email} onChange={(event) => setEmail(event.currentTarget.value)}/>
                     <TextInput mt={30} label={"Role"} placeholder={"Role"} value={newStaff.role} onChange={(event) => setRole(event.currentTarget.value)}/>
                     <TextInput mt={30} label={"Image"} placeholder={"Image URL"} value={newStaff.pictureURL} onChange={(event) => setProfileImage(event.currentTarget.value)}/>
+                    <TextInput mt={30} label={"LinkedIn"} placeholder={"LinkedIn"} value={newStaff.linkedIn} onChange={(event) => setLinkedIn(event.currentTarget.value)}/>
                     <Button size={"md"} mt={30} onClick={() => AddStaff()}>Add Staff</Button>
                 </div>
             </div>
@@ -101,6 +102,8 @@ const DashboardC = () => {
 
         return dateAndTime.toDate();
     }
+
+    //setting staff
 
     function setName(value: string) {
         setNewStaff(event => ({
@@ -130,12 +133,14 @@ const DashboardC = () => {
         }))
     }
 
-    function setLink(value: string) {
+    function setLinkedIn(value: string) {
         setNewStaff(event => ({
             ...event,
-            link: value
+            linkedIn: value
         }))
     }
+
+    //setting new event
 
     function setTitle(value: string) {
         setNewEvent(event => ({
@@ -164,6 +169,14 @@ const DashboardC = () => {
             imageURL: value
         }))
     }
+
+    function setLink(value: string) {
+        setNewEvent(event => ({
+            ...event,
+            link: value
+        }))
+    }
+    
 }
 
 export default DashboardC

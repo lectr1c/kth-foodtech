@@ -11,7 +11,8 @@ class StaffRepo {
                 name: staff.name,
                 email: staff.email,
                 pictureURL: staff.pictureURL,
-                role: staff.role
+                role: staff.role,
+                linkedIn: staff.linkedIn
             })
         } catch (e : MongooseError | any) {
             return e;
