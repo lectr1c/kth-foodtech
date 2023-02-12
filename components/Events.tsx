@@ -12,7 +12,6 @@ const Events = () => {
     const [matches600, set600] = useState(true);
 
     const { width } = useViewportSize();
-    const date = new Date();
     const dateToday = dayjs();
 
     useEffect(() => {
@@ -22,6 +21,8 @@ const Events = () => {
 
 
     const [eventList, setEvents] = useListState<TEvent>([]);
+    const [time, setTime] = useState(new Date());
+    const [date, setDate] = useState<Date>(new Date());
 
     function combineTimeAndDate(time: Date, date: Date) {
         if (!(date instanceof Date)) return undefined;
