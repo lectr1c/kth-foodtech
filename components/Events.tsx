@@ -23,6 +23,19 @@ const Events = () => {
 
     const [eventList, setEvents] = useListState<TEvent>([]);
 
+    function combineTimeAndDate(time: Date, date: Date) {
+        if (!(date instanceof Date)) return undefined;
+        if (!(time instanceof Date)) return date;
+
+        const hour = dayjs(time).hour();
+        const minute = dayjs(time).minute();
+        const dateAndTime = dayjs(date).hour(hour).minute(minute);
+
+        return dateAndTime.toDate();
+    }
+
+    const combinedDate : Date = combineTimeAndDate(time, date) || new Date();
+
     useEffect(() => {
         axios.get("/api/event")
             .then(value => {
@@ -49,7 +62,7 @@ const Events = () => {
                             <Group position="apart" mt="md" mb="xs">
                                 <Text weight={500}>{event.title}</Text>
                                 
-                                {dayjs(event.eventDate).format('YYYY-MM-DD HH:mm') >= dayjs().format('YYYY-MM-DD HH:mm') ? <Badge color="green" variant="light">Upcoming</Badge>: <Badge color="red" variant="light"> Previous </Badge>}
+                                {dayjs(event.eventDate).format('YYYY-MM-DD HH:mm') >= dayjs(combinedDate).format('YYYY-MM-DD HH:mm') ? <Badge color="green" variant="light">Upcoming</Badge>: <Badge color="red" variant="light"> Previous </Badge>}
                                 
                             </Group>
 
