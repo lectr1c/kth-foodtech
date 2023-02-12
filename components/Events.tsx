@@ -4,7 +4,6 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
 import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
-import dayjs from "dayjs";
 
 const Events = () => {
 
@@ -48,7 +47,7 @@ const Events = () => {
                             <Group position="apart" mt="md" mb="xs">
                                 <Text weight={500}>{event.title}</Text>
                                 
-                                {event.eventDate <= date ? <Badge color="green" variant="light">Upcoming</Badge>: <Badge color="red" variant="light"> Previous </Badge>}
+                                {event.eventDate >= date ? <Badge color="green" variant="light">Upcoming</Badge>: <Badge color="red" variant="light"> Previous </Badge>}
                                 
                             </Group>
 
