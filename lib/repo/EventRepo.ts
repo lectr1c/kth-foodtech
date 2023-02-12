@@ -23,7 +23,7 @@ class EventRepo {
 
     async getEvents() : Promise<TEvent[]> {
         try {
-            const events = await EventsModel.find({}, ["title", "brief", "description", "datePosted", "imageURL", "link"], {
+            const events = await EventsModel.find({}, ["title", "brief", "description", "datePosted", "eventDate", "imageURL", "link"], {
                 sort: {
                     DatePosted: -1
                 }});

@@ -36,6 +36,7 @@ const Staff = ({deleteMode} : { deleteMode : boolean }) => {
                             <Text size="lg" weight={500}>
                                 {staff.name}
                             </Text>
+                            <Button compact>LinkedIn</Button>
                             {deleteMode ? <Button mt="md" color={"red"} onClick={() => deleteStaff(staff._id)}>Delete</Button> : 
                             <></>}
                         </div>
