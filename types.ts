@@ -15,7 +15,8 @@ type TStaff = {
     name?: string,
     email?: string,
     role?: string,
-    pictureURL?: string
+    pictureURL?: string,
+    linkedIn?: string
 }
 
 type TEmail = {

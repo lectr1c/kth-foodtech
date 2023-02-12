@@ -34,7 +34,8 @@ export default async function handler(
               name: req.body.name,
               email: req.body.email,
               pictureURL: req.body.pictureURL,
-              role: req.body.role
+              role: req.body.role,
+              linkedIn: req.body.linkedIn
           }).then(r => {
               // @ts-ignore
               res.status(200).json({...r._doc});

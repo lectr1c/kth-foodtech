@@ -1,7 +1,7 @@
 import { createStyles, Divider, Group, Text, Title, useMantineTheme, ActionIcon, Avatar, Autocomplete, Button} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {useListState, useViewportSize} from "@mantine/hooks";
-import { BrandLinkedin, BrandTwitter } from 'tabler-icons-react';
+import { IconBrandLinkedin } from '@tabler/icons';
 import {TStaff} from "../types";
 import axios from "axios";
 import styles from "../styles/staff.module.css";
@@ -36,7 +36,15 @@ const Staff = ({deleteMode} : { deleteMode : boolean }) => {
                             <Text size="lg" weight={500}>
                                 {staff.name}
                             </Text>
-                            <Button compact>LinkedIn</Button>
+                            <Button 
+                            compact 
+                            variant="gradient" 
+                            gradient={{ from: 'teal', to: 'green', deg: 60 }} 
+                            component = {"a"}
+                            href={staff.linkedIn} 
+                            color="white"
+                            leftIcon={<IconBrandLinkedin size={18} />}>LinkedIn</Button>
+                            
                             {deleteMode ? <Button mt="md" color={"red"} onClick={() => deleteStaff(staff._id)}>Delete</Button> : 
                             <></>}
                         </div>
