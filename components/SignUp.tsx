@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import {Checkbox, UnstyledButton, TextInput, Title, Button, Divider, Autocomplete, Loader, Text, Group} from "@mantine/core";
 import styles from "../styles/signup.module.css";
 import { IconAt, IconWriting } from '@tabler/icons';
+import {TSignUp} from "../types";
 import axios from "axios";
 import { showNotification } from '@mantine/notifications';
 import { useRouter } from 'next/router'
@@ -37,7 +38,8 @@ function putUser() {
     axios.post("/api/sign", newMember)
         .then(res => {
           showNotification({
-            title: "Welcome to the team!",
+            title: "Successful",
+            message:"Welcome to the team!",
             color: "green"
           })
         })
