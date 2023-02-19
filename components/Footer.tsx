@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStyles, Container, Group, ActionIcon, Popover, Avatar, Button } from '@mantine/core';
 import { BrandLinkedin, BrandFacebook, BrandInstagram } from 'tabler-icons-react';
+
 import Image from "next/image";
 import logo from "../public/logo.svg";
 import darklogo from "../public/blacklogo.svg";

@@ -25,6 +25,13 @@ type TEmail = {
     email?: string,
     message?: string
 }
+type TSignUp = {
+    _id?:number,
+    fullName?:string,
+    email?: string,
+    accept?:boolean
+
+}
 export type {
-    TEvent, TStaff, TEmail
+    TEvent, TStaff, TEmail, TSignUp
 }

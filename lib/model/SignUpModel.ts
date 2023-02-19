@@ -4,14 +4,13 @@ import {string} from "prop-types";
 const conn = mongoose.createConnection("mongodb+srv://root:" + process.env.MONGO_PASS + "@kthfoodtech.tm3zvaf.mongodb.net/?retryWrites=true&w=majority");
 
 
-const Staff = new mongoose.Schema({
+const SignUp = new mongoose.Schema({
     id: Number,
-    name: String,
+    fullName: String,
     email: String,
-    role: String,
-    pictureURL: String
+    accept: Boolean
 })
 
-const StaffModel = conn.models.Staff || conn.model("Staff", Staff);
+const SignUpModel = conn.models.Staff || conn.model("SignUp", SignUp);
 
-export default StaffModel;
+export default SignUpModel;

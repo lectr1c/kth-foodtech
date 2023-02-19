@@ -49,7 +49,7 @@ const Navigation: NextComponentType = () => {
                             title={title}/>
                     </div> */}
                     <Button variant="gradient" gradient={{ from: 'teal', to: 'green', deg: 60 }} 
-                    onClick={() => { router.push("/SignUp")}}>Sign Up</Button>
+                    onClick={() => { router.push("/signup")}}>Sign Up</Button>
                 </Group>
             </div>
             {/* <Drawer position={"top"} opened={opened} onClose={() => setOpened(false)}>

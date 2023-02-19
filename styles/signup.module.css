@@ -1,0 +1,23 @@
+.memberAddContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eventAdd {
+    width: 80vw;
+}
+
+.checkBoxButton{
+    display: flex;
+    width: 50%;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: lightgrey;
+    padding: 10px;
+    background-color: white;
+    
+}
+.checkBoxButton:hover{
+    background-color: lightgrey;
+}
