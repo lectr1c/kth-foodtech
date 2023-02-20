@@ -1,18 +1,15 @@
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect} from 'react';
 import {Checkbox, UnstyledButton, TextInput, Title, Button, Divider, Autocomplete, Loader, Text, Group} from "@mantine/core";
 import styles from "../styles/signup.module.css";
 import { IconAt, IconWriting } from '@tabler/icons';
 import {TSignUp} from "../types";
 import axios from "axios";
 import { showNotification } from '@mantine/notifications';
-import { useRouter } from 'next/router'
-
 
 const SignUp = () => {
 
     const [newMember, setNewMember] = useState<TSignUp>({});
-    const router = useRouter();
     
     const timeoutRef = useRef<number>(-1);
     const [loading, setLoading] = useState(false);
@@ -44,15 +41,15 @@ function putUser() {
           })
         })
         .catch(err => {
-          showNotification({
+            showNotification({
             title: "Error",
             message: "You could not join!",
             color: "red"
-          })
+            })
         })
-  }
+}
 
-  function setName(value: string) {
+function setName(value: string) {
     setNewMember(event => ({
         ...event,
         fullName: value
@@ -94,10 +91,9 @@ function setStatus(checked: boolean) {
                         placeholder="Your email"
                         required
                     />
-                    <UnstyledButton mt={30} 
+                    <UnstyledButton 
+                        mt={30} 
                         className={styles.checkBoxButton}
-                        value={newMember.accept}
-                        onClick={(event) => setStatus(event.currentTarget.value)}
                         >
                         <Group>
                             <Checkbox
