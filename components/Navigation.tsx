@@ -53,7 +53,7 @@ const Navigation: NextComponentType = () => {
                     variant="gradient" 
                     gradient={{ from: 'blue', to: 'green', deg: 60 }} 
                     leftIcon={<IconUsers size={16}/>}
-                    onClick={() => { router.push("/signup")}}>Become a member</Button>
+                    onClick={() => { router.push("/SignUp")}}>Become a member</Button>
                 </Group>
             </div>
             {/* <Drawer position={"top"} opened={opened} onClose={() => setOpened(false)}>
