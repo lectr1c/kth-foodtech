@@ -4,6 +4,7 @@ import logo from "../public/logo.svg";
 import darklogo from "../public/blacklogo.svg";
 import Image from "next/image";
 import {Group, useMantineTheme, MantineProvider, ColorScheme} from "@mantine/core";
+import { IconUsers} from '@tabler/icons';
 import {useEffect, useState} from "react";
 import {useViewportSize} from "@mantine/hooks";
 import { useRouter } from 'next/router'
@@ -48,8 +49,11 @@ const Navigation: NextComponentType = () => {
                             onClick={() => setOpened((o) => !o)}
                             title={title}/>
                     </div> */}
-                    <Button variant="gradient" gradient={{ from: 'teal', to: 'green', deg: 60 }} 
-                    onClick={() => { router.push("/SignUp")}}>Sign Up</Button>
+                    <Button 
+                    variant="gradient" 
+                    gradient={{ from: 'blue', to: 'green', deg: 60 }} 
+                    leftIcon={<IconUsers size={16}/>}
+                    onClick={() => { router.push("/SignUp")}}>Become a member</Button>
                 </Group>
             </div>
             {/* <Drawer position={"top"} opened={opened} onClose={() => setOpened(false)}>

@@ -1,8 +1,9 @@
 
 import { useState, useRef, useEffect} from 'react';
-import {Checkbox, UnstyledButton, TextInput, Title, Button, Divider, Autocomplete, Loader, Text, Group} from "@mantine/core";
+import {Checkbox, UnstyledButton, TextInput, Title, 
+    Button, Divider, Autocomplete, Loader, Text, Group, List, ThemeIcon} from "@mantine/core";
 import styles from "../styles/signup.module.css";
-import { IconAt, IconWriting } from '@tabler/icons';
+import { IconAt, IconWriting, IconBrandDrupal } from '@tabler/icons';
 import {TSignUp} from "../types";
 import axios from "axios";
 import { showNotification } from '@mantine/notifications';
@@ -14,6 +15,7 @@ const SignUp = () => {
     const timeoutRef = useRef<number>(-1);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState<string[]>([]);
+    const [eligible, setEligible]=useState(false);
 
     const handleChange = (val: string) => {
         window.clearTimeout(timeoutRef.current);
@@ -75,7 +77,30 @@ function setStatus(checked: boolean) {
         <>
             <div className={styles.memberAddContainer}>
                 <div className={styles.eventAdd}>
-                    <Title>Sign Up</Title>
+                    <Title>KTH Foodtech membership sign up</Title>
+                    <Text mt={30}>Becoming a member at KTH Foodtech entails:
+                            <List
+                                spacing="xs"
+                                size="sm"
+                                center
+                                mt={30}
+                                icon={
+                                    <ThemeIcon 
+                                        variant="gradient" 
+                                        gradient={{ from: 'blue', to: 'green', deg: 60 }}
+                                        size={24}
+                                        radius = "xl"
+                                        ><IconBrandDrupal size={16}/>
+                                        </ThemeIcon>
+
+                                }
+                                >
+                                    <List.Item>Getting the monthly newsletter sent via email including interesting foodtech related facts and recipes.</List.Item>
+                                    <List.Item>Early information and access to sign up to upcoming events.</List.Item>
+                                    <List.Item>When a limited number of spots or food are available at events, members are prioritized. </List.Item>
+                                </List>
+                            
+                    </Text>
                     <TextInput mt={30} 
                         value={newMember.fullName}
                         label={"Full Name"}  
@@ -98,7 +123,7 @@ function setStatus(checked: boolean) {
                         <Group>
                             <Checkbox
                             checked={newMember.accept}
-                            onChange={(event) => setStatus(event.currentTarget.checked) }
+                            onChange={(event) => {setStatus(event.currentTarget.checked); setEligible(eligible => !eligible)}}
                             styles={{ input: { cursor: 'pointer' }}}
                             mr="xl"
                             tabIndex={-1}
@@ -113,11 +138,16 @@ function setStatus(checked: boolean) {
                             </Text>
                         </Group>
                     </UnstyledButton>
+                    {eligible === true?
                     <Button size={"md"} mt={30} 
                     variant="gradient" 
                     gradient={{ from: 'teal', to: 'green', deg: 60 }}
                     onClick={() => putUser()}
-                    >Sign Up</Button>
+                    >Sign Up</Button>:
+                    <Button data-disabled
+                    size={"md"}
+                    mt={30}
+                    >Sign Up</Button>}
                 </div>
                 <Divider/>
             </div>
