@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import SchemeToggler from "./SchemeToggler";
 import {NextComponentType} from "next";
 import styles from "../styles/Home.module.css";
+import { IconMail, IconCalendarEvent} from '@tabler/icons';
 
 
 const Hero : NextComponentType = (props) => {
@@ -50,8 +51,8 @@ const Hero : NextComponentType = (props) => {
                         </Text>
                     </div>
                     <Text mx={10} size={18}>Our mission is to connect KTH students to the amazing and fast paced world of Foodtech as well as inspire them to make greener food.</Text>
-                    <Button component={"a"} href={"#contact"} size={"md"} radius={"sm"} variant={"outline"} color={'green'} m={15} ml={7}>Contact Us</Button>
-                    <Button component={"a"} href={"#events"} radius={"sm"} variant={"filled"} color={'green'} m={15} ml={7}>Our Events</Button>
+                    <Button component={"a"} href={"#contact"} size={"md"} radius={"sm"} variant={"outline"} color={'green'} m={15} ml={7} leftIcon={<IconMail size={16}/>}>Contact Us</Button>
+                    <Button component={"a"} href={"#events"} radius={"sm"} variant={"filled"} color={'green'} m={15} ml={7} leftIcon={<IconCalendarEvent size={16}/>}>Our Events</Button>
                 </div>
                 <div>
                     <div style={{

@@ -15,6 +15,8 @@ import {
   Group,
   ActionIcon,
 } from '@mantine/core';
+import { IconSend} from '@tabler/icons';
+
 import { BrandTwitter, BrandYoutube, BrandInstagram } from 'tabler-icons-react';
 import {event} from "next/dist/build/output/log";
 import axios from "axios";
@@ -87,7 +89,11 @@ export function ContactUs() {
           />
 
           <Group position="right" mt="md">
-            <Button onClick={() => sendMessage()}>Send message</Button>
+            <Button 
+            variant="gradient" 
+            gradient={{ from: 'blue', to: 'green', deg: 60 }}
+            leftIcon={<IconSend size={16}/>}
+            onClick={() => sendMessage()}>Send message</Button>
           </Group>
         </div>
       </SimpleGrid>
