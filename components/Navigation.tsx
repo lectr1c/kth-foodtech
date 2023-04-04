@@ -51,7 +51,7 @@ const Navigation: NextComponentType = () => {
                     </div> */}
                     <Button 
                     variant="gradient" 
-                    gradient={{ from: 'blue', to: 'green', deg: 60 }} 
+                    gradient={{ from: 'blue', to: 'green', deg: 60 }}
                     leftIcon={<IconUsers size={16}/>}
                     onClick={() => { router.push("/SignUp")}}>Become a member</Button>
                 </Group>

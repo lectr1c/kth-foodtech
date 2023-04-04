@@ -41,6 +41,7 @@ const Staff = ({deleteMode} : { deleteMode : boolean }) => {
                             variant="gradient" 
                             gradient={{ from: 'teal', to: 'green', deg: 60 }} 
                             component = {"a"}
+                            target="_blank"
                             href={staff.linkedIn} 
                             color="white"
                             leftIcon={<IconBrandLinkedin size={18} />}>LinkedIn</Button>

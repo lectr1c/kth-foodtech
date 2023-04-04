@@ -25,7 +25,7 @@ class EventRepo {
         try {
             const events = await EventsModel.find({}, ["title", "brief", "description", "datePosted", "eventDate", "imageURL", "link"], {
                 sort: {
-                    DatePosted: -1
+                    eventDate: -1
                 }});
             return events;
         } catch (e : MongooseError | any) {

@@ -28,7 +28,7 @@ const SignUp = () => {
         setLoading(true);
         timeoutRef.current = window.setTimeout(() => {
         setLoading(false);
-        setData(['gmail.com', 'kth.com', 'outlook.com'].map((provider) => `${val}@${provider}`));
+        setData(['gmail.com', 'kth.se', 'outlook.com'].map((provider) => `${val}@${provider}`));
         }, 1000);
     }
 };
