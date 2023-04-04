@@ -50,7 +50,7 @@ const Hero : NextComponentType = (props) => {
                             The Food Industry
                         </Text>
                     </div>
-                    <Text mx={10} size={18}>Our mission is to connect KTH students to the amazing and fast paced world of Foodtech as well as inspire them to make greener food.</Text>
+                    <Text mx={10} size={18}>Our mission is to connect students to the amazing and fast paced world of Foodtech as well as inspire them to make greener food.</Text>
                     <Button component={"a"} href={"#contact"} size={"md"} radius={"sm"} variant={"outline"} color={'green'} m={15} ml={7} leftIcon={<IconMail size={16}/>}>Contact Us</Button>
                     <Button component={"a"} href={"#events"} radius={"sm"} variant={"filled"} color={'green'} m={15} ml={7} leftIcon={<IconCalendarEvent size={16}/>}>Our Events</Button>
                 </div>
