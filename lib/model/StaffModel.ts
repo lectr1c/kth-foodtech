@@ -8,9 +8,9 @@ const Staff = new mongoose.Schema({
     id: Number,
     name: String,
     email: String,
-    role: String,
+    //role: String,
     pictureURL: String,
-    linkedIn: String
+    //linkedIn: String
 })
 
 const StaffModel = conn.models.Staff || conn.model("Staff", Staff);
