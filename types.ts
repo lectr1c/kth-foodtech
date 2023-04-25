@@ -14,9 +14,9 @@ type TStaff = {
     _id?: number,
     name?: string,
     email?: string,
-    role?: string,
+    //role?: string,
     pictureURL?: string,
-    linkedIn?: string
+    //linkedIn?: string 
 }
 
 type TEmail = {

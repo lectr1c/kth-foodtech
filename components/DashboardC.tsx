@@ -83,9 +83,9 @@ const DashboardC = () => {
                     <Title mt={50}>Add Staff</Title>
                     <TextInput mt={30} label={"Name"} placeholder={"Name"} value={newStaff.name} onChange={(event) => setName(event.currentTarget.value)}/>
                     <TextInput mt={30} label={"Email"} placeholder={"Email"} value={newStaff.email} onChange={(event) => setEmail(event.currentTarget.value)}/>
-                    <TextInput mt={30} label={"Role"} placeholder={"Role"} value={newStaff.role} onChange={(event) => setRole(event.currentTarget.value)}/>
+                   {/* <TextInput mt={30} label={"Role"} placeholder={"Role"} value={newStaff.role} onChange={(event) => setRole(event.currentTarget.value)}/> */}
                     <TextInput mt={30} label={"Image"} placeholder={"Image URL"} value={newStaff.pictureURL} onChange={(event) => setProfileImage(event.currentTarget.value)}/>
-                    <TextInput mt={30} label={"LinkedIn"} placeholder={"LinkedIn"} value={newStaff.linkedIn} onChange={(event) => setLinkedIn(event.currentTarget.value)}/>
+                  {/*  <TextInput mt={30} label={"LinkedIn"} placeholder={"LinkedIn"} value={newStaff.linkedIn} onChange={(event) => setLinkedIn(event.currentTarget.value)}/> */}
                     <Button size={"md"} mt={30} onClick={() => AddStaff()}>Add Staff</Button>
                 </div>
             </div>
@@ -119,12 +119,12 @@ const DashboardC = () => {
         }))
     }
 
-    function setRole(value: string) {
+   /* function setRole(value: string) {
         setNewStaff(event => ({
             ...event,
             role: value
         }))
-    }
+    }  */
 
     function setProfileImage(value: string) {
         setNewStaff(event => ({
@@ -133,12 +133,12 @@ const DashboardC = () => {
         }))
     }
 
-    function setLinkedIn(value: string) {
+  /*  function setLinkedIn(value: string) {
         setNewStaff(event => ({
             ...event,
             linkedIn: value
         }))
-    }
+    } */
 
     //setting new event
 

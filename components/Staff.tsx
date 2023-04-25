@@ -1,4 +1,4 @@
-import { createStyles, Divider, Group, Text, Title, useMantineTheme, ActionIcon, Avatar, Autocomplete, Button} from "@mantine/core";
+import { createStyles, Divider, Group, Image, Text, Title, useMantineTheme, ActionIcon, Avatar, Autocomplete, Button} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {useListState, useViewportSize} from "@mantine/hooks";
 import { IconBrandLinkedin } from '@tabler/icons';
@@ -27,28 +27,46 @@ const Staff = ({deleteMode} : { deleteMode : boolean }) => {
         <div className={styles.staffContainer}>
             {staffList.map(staff => {
                 return (
+                    <div>
+                    <Text
+                    variant="gradient"
+                    gradient={{ from: 'teal', to: 'green', deg: 60 }}
+                    sx={{ fontFamily: 'Greycliff CF, sans-serif' }}
+                    ta="center"
+                    fz="xl"
+                    fw={700}
+                    >
+                    {staff.name}
+                </Text>
+                
                     <div key={staff._id} className={styles.staffCard}>
-                        <Avatar src={staff.pictureURL} alt={staff.name} size={130} radius="md"/>
+                            <Image 
+                                src={staff.pictureURL} 
+                                height={500}
+                                width={600}
+                                mx="auto"
+                                fit="contain"
+                                alt={staff.name}
+                                caption={staff.name}
+                                radius="md"/>
                         <div>
-                            <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
+                            {/* <Text size="xs" sx={{ textTransform: 'uppercase' }} weight={700} color="dimmed">
                                 {staff.role}
-                            </Text>
-                            <Text size="lg" weight={500}>
-                                {staff.name}
-                            </Text>
-                            <Button 
-                            compact 
-                            variant="gradient" 
-                            gradient={{ from: 'teal', to: 'green', deg: 60 }} 
-                            component = {"a"}
-                            target="_blank"
-                            href={staff.linkedIn} 
-                            color="white"
-                            leftIcon={<IconBrandLinkedin size={18} />}>LinkedIn</Button>
+                                </Text> */}
+                            {/*<Button 
+                                compact 
+                                variant="gradient" 
+                                gradient={{ from: 'teal', to: 'green', deg: 60 }} 
+                                component = {"a"}
+                                target="_blank"
+                                href={staff.linkedIn} 
+                                color="white"
+                            leftIcon={<IconBrandLinkedin size={18} />}>LinkedIn</Button>*/}
                             
                             {deleteMode ? <Button mt="md" color={"red"} onClick={() => deleteStaff(staff._id)}>Delete</Button> : 
                             <></>}
                         </div>
+                    </div>
                     </div>
                 )
             })}

@@ -11,6 +11,7 @@
     display: flex;
     width: 260px;
     padding: 25px 0 25px 0;
+    justify-content: center;
 }
 
 .staffCard div:first-child {
