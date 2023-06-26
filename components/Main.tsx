@@ -23,7 +23,7 @@ const Main: NextComponentType = (props?: Object) => {
             <AboutUs/>
             <Staff deleteMode={false}/>
             <WavesSpacer/>
-            <ContactUs/>
+            {/*<ContactUs/>*/}
         </>
     )
 }
